@@ -1,0 +1,292 @@
+/*
+ * Code King Softwares e Web Sites
+ * Author: Leonardo Barney && João Nobre
+ * Stylesheet Cadastro de Avaliação Física
+ */
+
+/*Frame************************************************************************************/
+.Frame{
+        -fx-background-color: rgba(25, 25, 25, 0.75);
+        -fx-background-radius: 10;
+        -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 15, 0.6, -2.0, 2.0);
+}
+
+/*Label************************************************************************************/
+
+.label {
+    -fx-font-size: 14px;
+    -fx-font-family: "Ubuntu";
+    -fx-text-fill: #dedede;
+}
+
+.label#title {
+    -fx-font-size: 18.0;
+}
+
+/*Date-Picker************************************************************************************/
+
+.date-picker {
+    -fx-border-radius: 5.0;
+    -fx-background-color: rgba(0, 0, 0, .08);
+    -fx-background-radius: 5;
+    -fx-text-fill: #e8e8e8;
+    -fx-border-color: rgba(200, 200, 200, .2);
+    -fx-border-width: 2;
+    -fx-background-insets: 0.0,9.0 9.0 8.0 9.0,9.0,10.0,11.0;
+}
+
+.date-picker > .arrow-button > .arrow {
+    -fx-shape: "M0,0v9h9V0H0z M2,8H1V7h1V8z M2,6H1V5h1V6z M2,4H1V3h1V4z M4,8H3V7h1V8z M4,6H3V5h1V6z M4,4H3V3h1V4z M6,8H5V7h1V8z M6,6H5 V5h1V6z M6,4H5V3h1V4z M8,8H7V7h1V8z M8,6H7V5h1V6z M8,4H7V3h1V4z";
+    -fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-padding: 0.416667em 0.416667em 0.333333em 0.333333em; /* 5 5 4 4 */
+    -fx-scale-shape: true;
+    -fx-background-radius-radius: 25px;
+}
+
+.date-picker .text-field{
+    -fx-border-radius: 5.0;
+    -fx-background-color: transparent;
+    -fx-background-radius: 5;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-insets: 0.0,9.0 9.0 8.0 9.0,9.0,10.0,11.0;
+}
+
+.date-picker:hover .text-field {
+    -fx-background-color: rgba(0,0,0, .1);
+}
+
+.date-picker:focused .text-field {
+    -fx-background-color: linear-gradient(#323232, #363636);
+}
+
+.date-picker > .arrow-button
+{
+    -fx-background-color: #d2d2d2;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.date-picker:hover > .arrow-button {
+    -fx-background-color: #e2e2e2;
+}
+
+.date-picker:focused > .arrow-button{
+    -fx-background-color: white;
+}
+
+.date-picker > .arrow-button:hover {
+    -fx-background-color: #d9d9d9;
+    -fx-background-insets: 3;
+    -fx-background-radius: 0;
+}
+
+.date-picker > .arrow-button:pressed {
+    -fx-background-color: black;
+    -fx-background-insets: 3;
+    -fx-background-radius: 0;
+}
+
+.date-picker > .arrow-button:pressed > .arrow {
+    -fx-background-color: white;
+}
+
+.date-picker-popup {
+    -fx-background-color: #4a4a4a;
+    -fx-background-insets: 0;
+}
+
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: #4a4a4a;
+    -fx-background-insets: 0;
+}
+
+.date-picker-popup > * > .spinner > .button {
+    -fx-padding: 0.25em 0.583333em 0.25em 0.583333em; /* 3 7 3 7 */
+}
+
+.date-picker-popup > * > .spinner > .button {
+    -fx-background-color: #4a4a4a;
+    -fx-background-insets: 0;
+    -fx-border-color: transparent;
+}
+
+.date-picker-popup > * > .spinner > .button > .left-arrow,
+.date-picker-popup > * > .spinner > .button > .right-arrow {
+    -fx-background-color: #b3b3b3;
+    -fx-background-insets: 0;
+    -fx-effect: null;
+}
+
+.date-picker-popup > * > .spinner > .button:hover > .left-arrow,
+.date-picker-popup > * > .spinner > .button:hover > .right-arrow {
+    -fx-background-color: white;
+}
+
+.date-picker-popup > * > .spinner {
+    -fx-background-color: #4a4a4a;
+    -fx-background-insets: 0;
+}
+
+.date-picker-popup > * > .spinner .label {
+    -fx-text-fill: #b3b3b3;
+}
+
+.date-picker-popup > .calendar-grid {
+    -fx-background-color: #4a4a4a;
+    -fx-padding: 0;
+}
+
+.date-picker-popup > * > .day-name-cell,
+.date-picker-popup > * > .week-number-cell {
+    -fx-font-size: 0.75em;
+    -fx-text-fill: white;
+}
+
+.date-picker-popup > * > .day-cell {
+
+    -fx-border-color: #4a4a4a;
+    -fx-background: #4a4a4a;
+    -fx-background-color: #4a4a4a;
+    -fx-text-fill: white;
+}
+
+.date-picker-popup > * > .day-cell:hover {
+    -fx-background-color: #999999, #4a4a4a;
+    -fx-background-insets: 0, 3;
+}
+
+.date-picker-popup > * > .day-cell.selected {
+    -fx-background-color: #999999, #4a4a4a;
+    -fx-background-insets: 0, 3;
+}
+
+.date-picker-popup > * > .previous-month,
+.date-picker-popup > * > .next-month {
+    -fx-background-color: #4a4a4a;
+    /*-fx-text-fill: #999999;*/
+    -fx-opacity: 0.3;
+}
+
+.date-picker-popup > * > .today {
+    -fx-background-color: #97000f;
+    -fx-background-insets: 0;
+}
+
+/*Combo-Box************************************************************************************/
+
+.combo-box{
+    -fx-border-radius: 5.0;
+    -fx-background-color: rgba(0, 0, 0, .08);
+    -fx-background-radius: 5;
+    -fx-text-fill: #e8e8e8;
+    -fx-border-color: rgba(200, 200, 200, .2);
+    -fx-border-width: 2;
+    -fx-background-insets: 0.0,9.0 9.0 8.0 9.0,9.0,10.0,11.0;
+}
+
+.combo-box:hover {
+    -fx-background-color: rgba(0, 0, 0, .1);
+}
+
+.combo-box-popup .list-view
+{
+    -fx-background-color: #232323, #232323;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 );
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover
+{
+    -fx-background-color: #943030;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.combo-box .list-cell
+{
+    -fx-background: #232323;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-padding: 3 0 2 7;
+    -fx-cell-size: 1.66667em;
+}
+
+/*Button************************************************************************************/
+
+.button{
+    -fx-padding: 7.0 12.0 7.0 12.0;
+    -fx-background-insets: 0.0,9.0 9.0 8.0 9.0,9.0,10.0,11.0;
+    -fx-background-color: transparent;
+    -fx-text-fill: #e8e8e8;
+    -fx-border-color: rgba(200, 200, 200, .2);
+    -fx-border-width: 2;
+    -fx-border-radius: 7.5;
+}
+
+.button:hover {
+    -fx-background-color: rgba(0,0,0, .1);
+    -fx-background-radius: 7.5;
+}
+
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+}
+
+.button:default {
+    -fx-background-color: -fx-focus-color;
+    -fx-text-fill: #ffffff;
+}
+
+.button:default:hover {
+    -fx-background-color: derive(-fx-focus-color,30.0%);
+}
+
+/*Control-Button************************************************************************************/
+
+.ControlButton{
+    -fx-background-color: transparent;
+    -fx-text-fill: #585858;
+    -fx-border-color: transparent;
+    -fx-border-width: 2;
+    -fx-border-radius: 30;
+    -fx-padding: 2;
+}
+
+.ControlButton:hover{
+    -fx-background-color: transparent;
+    -fx-border-color: #585858;
+    -fx-cursor: hand;
+}
+
+.ControlButton#Fechar:pressed, .ControlButton#Fechar default:hover:pressed{
+    -fx-border-width: 2.0;
+    -fx-border-color: #9c3030;
+    -fx-text-fill: #666666;
+}
+
+/*Text-Field************************************************************************************/
+
+.text-field {
+    -fx-border-radius: 5.0;
+    -fx-background-color: rgba(0, 0, 0, .08);
+    -fx-background-radius: 5;
+    -fx-text-fill: #e8e8e8;
+    -fx-border-color: rgba(200, 200, 200, .2);
+    -fx-border-width: 2;
+    -fx-background-insets: 0.0,9.0 9.0 8.0 9.0,9.0,10.0,11.0;
+}
+.text-field:hover {
+    -fx-background-color: rgba(0, 0, 0, .1);
+}
+
+.radio-button .radio {
+    -fx-border-width: 1px;
+    -fx-background-color: white;
+    -fx-padding: 4px;
+    /*borda do foco*/
+    -fx-focus-color: red;
+}

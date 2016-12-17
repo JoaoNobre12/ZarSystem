@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="559" maxWidth="900" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="906.0" styleClass="root" stylesheets="@css/Splash.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zarsystem.controller.SplashController">
+
+	<ImageView fx:id="imgView" fitHeight="534.0" fitWidth="867.0" layoutX="22.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+
+		<image>
+			<Image url="@img/telaSplash.png" />
+		</image>
+	</ImageView>
+	<Label fx:id="lblLoading" layoutX="518.0" layoutY="427.0" styleClass="loading" text="" />
+   <Label fx:id="lblVercao" alignment="CENTER" layoutX="141.0" layoutY="492.0" prefHeight="29.0" prefWidth="694.0" text="2015-2016 Code King Software e WebSites, Academia Health Fitness, Zar System 1.1" textAlignment="CENTER" textFill="WHITE">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Label>
+</AnchorPane>

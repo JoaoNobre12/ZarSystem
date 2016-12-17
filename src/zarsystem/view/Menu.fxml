@@ -1,0 +1,1869 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="Pai" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="635.0" prefWidth="950.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zarsystem.controller.MenuController">
+   <children>
+      <BorderPane fx:id="frame" prefHeight="615.0" prefWidth="1060.0" styleClass="Frame" stylesheets="@css/Menu.css">
+         <bottom>
+            <StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="0.0" style="-fx-background-color: #943030; -fx-background-radius: 0 0 7.5 7.5;" BorderPane.alignment="CENTER">
+               <children>
+                  <Group StackPane.alignment="CENTER_RIGHT">
+                     <children>
+                        <Label id="status" fx:id="lblTime" layoutX="47.0" layoutY="-1.0" text="00:00" />
+                     </children>
+                     <StackPane.margin>
+                        <Insets right="20.0" />
+                     </StackPane.margin>
+                  </Group>
+                  <Label id="status" fx:id="lblUniversalLogs" alignment="CENTER" prefHeight="23.0" prefWidth="234.0" text="Bem Vindo!" textAlignment="CENTER" StackPane.alignment="CENTER_LEFT">
+                     <padding>
+                        <Insets bottom="3.0" />
+                     </padding>
+                     <StackPane.margin>
+                        <Insets right="5.0" />
+                     </StackPane.margin></Label>
+                  <Label id="status" prefHeight="18.0" style="-fx-background-color: #943030;" text="Code King Software e Web Sites, Academia Health Fitness Zar System 1.1 ">
+                     <StackPane.margin>
+                        <Insets bottom="3.0" />
+                     </StackPane.margin>
+                     <padding>
+                        <Insets left="15.0" right="15.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </StackPane>
+         </bottom>
+         <center>
+            <TabPane fx:id="tabPanePrincipal" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" side="LEFT" style="-fx-background-color: #282828" styleClass="RR" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+               <tabs>
+                  <Tab fx:id="tabHome" text="        Home          ">
+                     <content>
+                        <StackPane fx:id="homeFrame1" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #282828;">
+                           <children>
+                              <ImageView fitHeight="545.0" fitWidth="696.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_LEFT">
+                                 <image>
+                                    <Image url="@img/LogoGrey.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                              <ImageView fitHeight="109.0" fitWidth="469.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/Centro.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets bottom="90.0" />
+                                 </StackPane.margin>
+                              </ImageView>
+                              <ImageView fitHeight="86.0" fitWidth="209.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/LogoCk.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets top="90.0" />
+                                 </StackPane.margin>
+                              </ImageView>
+                              <Group StackPane.alignment="BOTTOM_RIGHT">
+                                 <children>
+                                    <Label id="status" text="Alunos Cadastrados:" />
+                                    <Label id="status" layoutY="19.0" text="Funcionários Cadastrados:" />
+                                    <Label id="status" layoutY="39.0" text="Produtos Cadastrados:" />
+                                    <Label id="status" layoutY="58.0" text="Renda Mensal Prevista: " />
+                                    <Label id="status" fx:id="lblClientesCadastrados" layoutX="141.0" layoutY="1.0" />
+                                    <Label id="status" fx:id="lblFuncionariosCadastrados" layoutX="169.0" layoutY="20.0" text="666" />
+                                    <Label id="status" fx:id="lblProdutosCadastrados" layoutX="148.0" layoutY="40.0" text="666" />
+                                    <Label id="status" fx:id="nRenda1" layoutX="152.0" layoutY="59.0" text="666" />
+                                 </children>
+                                 <StackPane.margin>
+                                    <Insets bottom="50.0" right="50.0" />
+                                 </StackPane.margin>
+                              </Group>
+                           </children>
+                        </StackPane>
+                     </content>
+                     <graphic>
+                        <ImageView fitHeight="59.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/SHome.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Tab>
+                  <Tab fx:id="tabClientes" text="        Clientes        ">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/SCliente.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <content>
+                        <StackPane fx:id="clientesFrame1" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #282828;">
+                           <children>
+                              <TabPane fx:id="tabPaneClientes" accessibleRole="BUTTON" prefHeight="200.0" prefWidth="200.0" styleClass="SS" tabClosingPolicy="UNAVAILABLE">
+                                 <tabs>
+                                    <Tab fx:id="tabConsulta" style="-fx-rotate: 0;" text="Consulta">
+                                       <content>
+                                          <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fx:id="produtosIMG22" fitHeight="450.0" fitWidth="535.0" opacity="0.6" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                                                   <image>
+                                                      <Image url="@img/ClienteConsulta.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Region maxHeight="-Infinity" minHeight="-Infinity" prefHeight="11.0" styleClass="TabFill" StackPane.alignment="TOP_CENTER" />
+                                                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="52.0" prefWidth="658.0" style="-fx-background-color: rgba(0, 0, 0, 0.07);" StackPane.alignment="TOP_CENTER">
+                                                   <StackPane.margin>
+                                                      <Insets top="10.0" />
+                                                   </StackPane.margin>
+                                                   <children>
+                                                      <Button fx:id="btnLimparAluno" mnemonicParsing="false" prefHeight="34.0" text="Limpar">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/Cancel.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Button>
+                                                      <Button fx:id="btnExcluirAluno" mnemonicParsing="false" onAction="#excluirItemAluno" prefHeight="34.0" text="Excluir">
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/lixeira.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" right="5.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button fx:id="btnAlunoEdtCadastro" mnemonicParsing="false" onAction="#updateAluno" prefHeight="34.0" text="Editar Cadastro">
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/as.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" right="5.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button fx:id="btnAlunoCdtAvFisica" mnemonicParsing="false" onAction="#cadastrarAvFisica" prefHeight="34.0" text="Avaliação Física">
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/Cadastro.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" right="5.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                                <GridPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="420.0" prefWidth="827.0" StackPane.alignment="TOP_LEFT">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="419.0" minWidth="10.0" prefWidth="306.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="406.0" minWidth="10.0" prefWidth="316.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="110.0" minHeight="0.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="123.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Group fx:id="TPCaTipo12" />
+                                                      <Label fx:id="TPCaDescricaoLbl12" prefHeight="19.0" prefWidth="154.0" text="Data de Nascimento:" GridPane.rowIndex="1" />
+                                                      <Label fx:id="TPCaCodidoLbl1112" prefHeight="19.0" prefWidth="141.0" text="RG: " GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets right="5.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtRgAluno" onKeyTyped="#consultAlunos" prefHeight="25.0" prefWidth="17.0" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets left="32.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="txtDtNascAluno" disable="true" onKeyTyped="#consultAlunos" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="140.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label prefHeight="19.0" prefWidth="145.0" text="CPF:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets left="10.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtCpfAluno" onKeyTyped="#consultAlunos" prefHeight="25.0" prefWidth="278.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets left="45.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label text="Nome:" GridPane.columnIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="10.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <Label fx:id="TPCaCodidoLbl1111" prefHeight="19.0" prefWidth="122.0" text="Nº de Matrícula:" />
+                                                      <TextField fx:id="txtNumMatAluno" minHeight="-Infinity" onKeyTyped="#consultAlunos" prefHeight="26.0" prefWidth="121.0">
+                                                         <GridPane.margin>
+                                                            <Insets left="120.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="txtNomeAluno" onKeyTyped="#consultAlunos" prefHeight="25.0" prefWidth="134.0" GridPane.columnIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="60.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <ComboBox fx:id="cbPlanoAluno" prefHeight="27.0" prefWidth="248.0" promptText="Pesquise por aqui..." GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="65.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </ComboBox>
+                                                      <Label text="Plano:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="10.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <Label opacity="0.0" prefHeight="43.0" prefWidth="90.0" text="Av. Física não cadastrada" textAlignment="CENTER" wrapText="true" GridPane.halignment="RIGHT">
+                                                         <effect>
+                                                            <Glow />
+                                                         </effect>
+                                                      </Label>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets bottom="275.0" left="20.0" right="20.0" top="20.0" />
+                                                   </padding>
+                                                   <StackPane.margin>
+                                                      <Insets bottom="25.0" left="10.0" right="10.0" top="50.0" />
+                                                   </StackPane.margin>
+                                                </GridPane>
+                                                <TableView fx:id="tableAluno" minWidth="-Infinity" prefHeight="300.0" prefWidth="0.0" tableMenuButtonVisible="true">
+                                                   <placeholder>
+                                                      <Label text="Não achamos nada por aqui..." />
+                                                   </placeholder>
+                                                   <columns>
+                                                      <TableColumn maxWidth="500.0" minWidth="50.0" prefWidth="50.0" text="Nº Matrícula">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="codMatricula" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" prefWidth="238.0" text="Nome">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="nome" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" prefWidth="123.0" text="Plano">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="plano" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" prefWidth="189.0" text="Sexo" visible="false">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="sexo" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" prefWidth="150.0" text="RG">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="rg" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" prefWidth="125.0" text="CPF" visible="false">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="cpf" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn prefWidth="65.0" text="Data Nas." visible="false">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="dtNasc" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" prefWidth="50.0" text="Pagamento">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="pagamento" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" prefWidth="150.0" text="D. de Pagamento">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="diaPagamento" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                   </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                   <StackPane.margin>
+                                                      <Insets bottom="10.0" left="10.0" right="10.0" top="210.0" />
+                                                   </StackPane.margin>
+                                                </TableView>
+                                             </children>
+                                          </StackPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab id="seg" fx:id="tabCadastro" text="Cadastro">
+                                       <content>
+                                          <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fx:id="produtosIMG3" fitHeight="450.0" fitWidth="535.0" opacity="0.6" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                                                   <image>
+                                                      <Image url="@img/ClienteCadastro.png" />
+                                                   </image>
+                                                   <StackPane.margin>
+                                                      <Insets />
+                                                   </StackPane.margin>
+                                                </ImageView>
+                                                <Region id="seg" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="11.0" prefWidth="632.0" styleClass="TabFill" StackPane.alignment="TOP_CENTER" />
+                                                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="52.0" prefWidth="658.0" style="-fx-background-color: rgba(0, 0, 0, 0.1);" StackPane.alignment="TOP_CENTER">
+                                                   <StackPane.margin>
+                                                      <Insets top="10.0" />
+                                                   </StackPane.margin>
+                                                   <children>
+                                                      <Button fx:id="btnCadastroCancelar" mnemonicParsing="false" onAction="#clearFieldsCliente" text=" Cancelar">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/Cancel.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Button>
+                                                      <Button fx:id="btnSalvarCliente" mnemonicParsing="false" onAction="#salvarAluno" text=" Salvar">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="15.0" top="5.0" />
+                                                         </HBox.margin>
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/Save.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                                <GridPane alignment="CENTER" maxHeight="500.0" maxWidth="900.0" minHeight="250.0" prefHeight="250.0" prefWidth="650.0" style="-fx-background-color: rgba(0,0,0,0.15); -fx-background-radius: 15px;" StackPane.alignment="CENTER">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="419.0" minWidth="10.0" prefWidth="310.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="406.0" minWidth="10.0" prefWidth="302.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="110.0" minHeight="7.0" prefHeight="54.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="123.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Group fx:id="TPCaTipo2">
+                                                         <children>
+                                                            <Label layoutX="83.0" layoutY="-2.0" text="Plano:" />
+                                                         </children>
+                                                      </Group>
+                                                      <Label fx:id="TPCaDescricaoLbl2" prefHeight="19.0" prefWidth="110.0" text="Nome:" GridPane.rowIndex="3" />
+                                                      <Label fx:id="TPCaCodidoLbl12" prefHeight="19.0" prefWidth="47.0" text="RG: " GridPane.rowIndex="5">
+                                                         <GridPane.margin>
+                                                            <Insets right="5.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtRGcliente" prefHeight="25.0" prefWidth="169.0" GridPane.rowIndex="5">
+                                                         <GridPane.margin>
+                                                            <Insets left="30.0" right="75.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label fx:id="TPCaCodidoLbl1151" prefHeight="19.0" prefWidth="92.0" text="CPF:" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                         <GridPane.margin>
+                                                            <Insets left="-65.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtCPFcliente" prefHeight="25.0" prefWidth="360.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                         <GridPane.margin>
+                                                            <Insets left="-25.0" right="35.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="txtNomeCliente" maxWidth="491.0" minWidth="-Infinity" prefHeight="25.0" prefWidth="491.0" GridPane.rowIndex="3">
+                                                         <GridPane.margin>
+                                                            <Insets left="50.0" right="-0.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <ComboBox fx:id="cbBoxPlanoCliente" prefHeight="25.0" prefWidth="554.0" promptText="Selecione">
+                                                         <GridPane.margin>
+                                                            <Insets left="50.0" right="-50.0" />
+                                                         </GridPane.margin>
+                                                      </ComboBox>
+                                                      <Label fx:id="TPCaDescricaoLbl21" prefHeight="19.0" prefWidth="75.0" text="Valor: R$" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <Label fx:id="TPCaCodidoLbl1122" prefHeight="19.0" prefWidth="145.0" text="Data de Nascimento:" GridPane.rowIndex="4" />
+                                                      <DatePicker fx:id="dtNascCliente" prefHeight="26.0" prefWidth="1106.0" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+                                                         <GridPane.margin>
+                                                            <Insets left="150.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </DatePicker>
+                                                      <HBox prefHeight="59.0" prefWidth="277.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                         <children>
+                                                            <Label fx:id="TPCaCodidoLbl11222" prefHeight="19.0" prefWidth="62.0" text="Sexo: " />
+                                                            <RadioButton fx:id="radioSexoMasculino" mnemonicParsing="false" prefHeight="26.0" prefWidth="107.0" selected="true" text="Masculino" textFill="WHITE">
+                                                               <toggleGroup>
+                                                                  <ToggleGroup fx:id="sexo" />
+                                                               </toggleGroup>
+                                                               <HBox.margin>
+                                                                  <Insets left="5.0" />
+                                                               </HBox.margin>
+                                                            </RadioButton>
+                                                            <RadioButton fx:id="radioSexoFeminino" mnemonicParsing="false" prefHeight="24.0" prefWidth="84.0" text="Feminino" textFill="WHITE" toggleGroup="$sexo">
+                                                               <HBox.margin>
+                                                                  <Insets left="5.0" />
+                                                               </HBox.margin></RadioButton>
+                                                         </children>
+                                                      </HBox>
+                                                      <Label fx:id="TPCaCodidoLbl11512" prefHeight="20.0" prefWidth="124.0" text="Dia de Pagamento:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="-90.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <ComboBox fx:id="cbBoxDiaDePagamento" prefHeight="25.0" prefWidth="265.0" promptText="Selecione" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="40.0" right="35.0" />
+                                                         </GridPane.margin>
+                                                      </ComboBox>
+                                                      <TextField fx:id="txtValorMensalidade" prefHeight="25.0" prefWidth="169.0" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="64.0" right="105.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label prefHeight="19.0" prefWidth="110.0" text="Carteirinha: R$" GridPane.rowIndex="2" />
+                                                      <TextField fx:id="txtValorCarteirinha" prefHeight="25.0" prefWidth="169.0" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets left="100.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label prefHeight="19.0" prefWidth="110.0" text="Matrícula: R$" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets left="5.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtValorMatricula" prefHeight="25.0" prefWidth="169.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets left="95.0" right="35.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <CheckBox fx:id="ckBoxPrimeiroPagamento" mnemonicParsing="false" text="Primeiro Pagamento" textFill="#dedede" GridPane.columnIndex="1">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                         <GridPane.margin>
+                                                            <Insets left="70.0" />
+                                                         </GridPane.margin>
+                                                      </CheckBox>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets bottom="25.0" left="35.0" right="20.0" top="15.0" />
+                                                   </padding>
+                                                   <StackPane.margin>
+                                                      <Insets bottom="40.0" left="10.0" right="10.0" top="85.0" />
+                                                   </StackPane.margin>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </GridPane>
+                                             </children>
+                                          </StackPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab fx:id="tabPagamento" style="-fx-rotate: 0;" text="Pagamento">
+                                       <content>
+                                          <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fx:id="produtosIMG221" fitHeight="450.0" fitWidth="535.0" opacity="0.6" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                                                   <image>
+                                                      <Image url="@img/ClienteConsulta.png" />
+                                                   </image>
+                                                   <StackPane.margin>
+                                                      <Insets />
+                                                   </StackPane.margin>
+                                                </ImageView>
+                                                <Region id="seg" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="11.0" styleClass="TabFill" StackPane.alignment="TOP_CENTER" />
+                                                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="52.0" prefWidth="658.0" style="-fx-background-color: rgba(0, 0, 0, 0.07);" StackPane.alignment="TOP_CENTER">
+                                                   <StackPane.margin>
+                                                      <Insets top="10.0" />
+                                                   </StackPane.margin>
+                                                   <children>
+                                                      <Button fx:id="btnPagLimparAluno" mnemonicParsing="false" prefHeight="34.0" text="Limpar">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/Cancel.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Button>
+                                                      <Button fx:id="btnPagRegistrarPagamento" mnemonicParsing="false" onAction="#registrarPagamentoAluno" prefHeight="34.0" text="Registrar Pagamento">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="-3.0">
+                                                               <image>
+                                                                  <Image url="@img/Cadastro.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" right="5.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                                <GridPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="388.0" prefWidth="668.0" StackPane.alignment="TOP_LEFT">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="419.0" minWidth="10.0" prefWidth="277.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="406.0" minWidth="10.0" prefWidth="350.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Group fx:id="TPCaTipo121" />
+                                                      <Label text="Nome:" GridPane.columnIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="10.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <Label prefHeight="19.0" prefWidth="122.0" text="Nº de Matrícula:" />
+                                                      <TextField fx:id="txtPagNumMatricula" minHeight="-Infinity" prefHeight="26.0" prefWidth="147.0">
+                                                         <GridPane.margin>
+                                                            <Insets left="120.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="txtPagNomeAluno" prefHeight="25.0" prefWidth="134.0" GridPane.columnIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="60.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label text="Plano:" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <Label text="Valor do Plano: R$" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <padding>
+                                                            <Insets left="10.0" />
+                                                         </padding></Label>
+                                                      <TextField fx:id="txtPagValorPlano" editable="false" prefHeight="26.0" prefWidth="236.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="140.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                         <opaqueInsets>
+                                                            <Insets />
+                                                         </opaqueInsets>
+                                                      </TextField>
+                                                      <TextField fx:id="txtPagPlano" editable="false" prefHeight="26.0" prefWidth="236.0" GridPane.rowIndex="1">
+                                                         <opaqueInsets>
+                                                            <Insets />
+                                                         </opaqueInsets>
+                                                         <GridPane.margin>
+                                                            <Insets left="40.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets bottom="275.0" left="20.0" right="20.0" top="20.0" />
+                                                   </padding>
+                                                   <StackPane.margin>
+                                                      <Insets bottom="25.0" left="10.0" right="10.0" top="50.0" />
+                                                   </StackPane.margin>
+                                                </GridPane>
+                                                <TableView fx:id="tablePagamentoAlunos" minWidth="-Infinity" prefHeight="342.0" prefWidth="667.0" tableMenuButtonVisible="true">
+                                                   <placeholder>
+                                                      <Label text="Não achamos nada por aqui..." />
+                                                   </placeholder>
+                                                   <columns>
+                                                      <TableColumn minWidth="0.0" text="Nº Matrícula">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="codMatricula" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn prefWidth="181.0" text="Nome">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="nome" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn prefWidth="159.0" text="Plano" visible="false">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="plano" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn prefWidth="85.0" text="Sexo" visible="false">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="sexo" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn prefWidth="134.0" text="RG" visible="false">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="rg" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn prefWidth="159.0" text="D. de Pagamento">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="diaPagamento" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn text="CPF" visible="false">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="cpf" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn minWidth="0.0" prefWidth="59.0" text="Data Nas." visible="false">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="dtNasc" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn minWidth="0.0" prefWidth="160.0" text="Pagamento">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="pagamento" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                   </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                   <StackPane.margin>
+                                                      <Insets bottom="10.0" left="10.0" right="10.0" top="180.0" />
+                                                   </StackPane.margin>
+                                                </TableView>
+                                             </children>
+                                          </StackPane>
+                                       </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
+                           </children>
+                        </StackPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tabProdutos" text="        Produtos      ">
+                     <content>
+                        <StackPane fx:id="produtosFrame" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #282828;">
+                           <children>
+                              <TabPane fx:id="tabPaneProdutos" accessibleRole="BUTTON" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="SS" tabClosingPolicy="UNAVAILABLE">
+                                 <tabs>
+                                    <Tab fx:id="tabConsultaProdutos" style="-fx-rotate: 0;" text="Consulta">
+                                       <content>
+                                          <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fitHeight="450.0" fitWidth="535.0" opacity="0.6" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                                                   <image>
+                                                      <Image url="@img/ProdutosConsulta.png" />
+                                                   </image>
+                                                   <StackPane.margin>
+                                                      <Insets right="-40.0" />
+                                                   </StackPane.margin>
+                                                </ImageView>
+                                                <Region maxHeight="-Infinity" minHeight="-Infinity" prefHeight="11.0" styleClass="TabFill" StackPane.alignment="TOP_CENTER" />
+                                                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="52.0" prefWidth="658.0" style="-fx-background-color: rgba(0, 0, 0, 0.07);" StackPane.alignment="TOP_CENTER">
+                                                   <StackPane.margin>
+                                                      <Insets top="10.0" />
+                                                   </StackPane.margin>
+                                                   <children>
+                                                      <Button mnemonicParsing="false" onAction="#limparConsultaProdutos" prefHeight="34.0" text=" Cancelar">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/Cancel.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#excluirProduto" prefHeight="34.0" prefWidth="135.0" text="Excluir Produto">
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/lixeira.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" right="5.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#adicionarAoCarrinho" prefHeight="34.0" prefWidth="182.0" text="Adicionar ao Carrinho">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                                <GridPane maxHeight="-Infinity" maxWidth="700.0" minHeight="-Infinity" prefHeight="420.0" prefWidth="638.0" StackPane.alignment="TOP_LEFT">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="419.0" minWidth="10.0" prefWidth="282.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="406.0" minWidth="10.0" prefWidth="316.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="123.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Group />
+                                                      <Label prefHeight="19.0" prefWidth="110.0" text="Descrição" GridPane.rowIndex="1" />
+                                                      <TextField fx:id="txtCstDescricaoProdutos" prefHeight="25.0" prefWidth="459.0" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="80.0" right="20.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label text="Tipo:" GridPane.columnIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <Label prefHeight="19.0" prefWidth="66.0" text="Código: " />
+                                                      <TextField fx:id="txtCstCodProdutos" prefHeight="25.0" prefWidth="138.0">
+                                                         <GridPane.margin>
+                                                            <Insets left="80.0" right="20.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label prefHeight="19.0" prefWidth="92.0" text="Quantidade:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtCstQtdProdutos" disable="true" editable="false" prefHeight="25.0" prefWidth="134.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="80.0" right="4.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <ComboBox fx:id="cbCstTipoProdutos" prefHeight="27.0" prefWidth="248.0" promptText="Selecione..." GridPane.columnIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="80.0" right="4.0" />
+                                                         </GridPane.margin>
+                                                      </ComboBox>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets bottom="275.0" left="20.0" right="20.0" top="20.0" />
+                                                   </padding>
+                                                   <StackPane.margin>
+                                                      <Insets bottom="25.0" left="10.0" right="10.0" top="50.0" />
+                                                   </StackPane.margin>
+                                                </GridPane>
+                                                <TableView fx:id="tvCstProdutos" minWidth="-Infinity" prefHeight="300.0" prefWidth="0.0" tableMenuButtonVisible="true">
+                                                   <placeholder>
+                                                      <Label text="Nenhum produto cadastrado ainda..." />
+                                                   </placeholder>
+                                                   <columns>
+                                                      <TableColumn maxWidth="1000.0" minWidth="100.0" prefWidth="119.0" text="Cod. Produto">
+                                                         <cellValueFactory>
+                                                             <PropertyValueFactory property="codProduto" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" minWidth="90.0" prefWidth="203.0" text="Nome">
+                                                          <cellValueFactory>
+                                                              <PropertyValueFactory property="nome" />
+                                                          </cellValueFactory>
+                                                      </TableColumn>
+                                                       <TableColumn maxWidth="1000.0" minWidth="100.0" prefWidth="224.0" text="Tipo">
+                                                           <cellValueFactory>
+                                                               <PropertyValueFactory property="tipo" />
+                                                           </cellValueFactory>
+                                                       </TableColumn>
+                                                       <TableColumn maxWidth="1000.0" minWidth="100.0" prefWidth="224.0" text="Descrição">
+                                                           <cellValueFactory>
+                                                               <PropertyValueFactory property="descricao" />
+                                                           </cellValueFactory>
+                                                       </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" minWidth="100.0" prefWidth="224.0" text="Valor">
+                                                          <cellValueFactory>
+                                                              <PropertyValueFactory property="valor" />
+                                                          </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" minWidth="70.0" prefWidth="122.0" text="Valor Revenda">
+                                                          <cellValueFactory>
+                                                              <PropertyValueFactory property="valorRevenda" />
+                                                          </cellValueFactory>
+                                                      </TableColumn>
+                                                       <TableColumn maxWidth="1000.0" minWidth="70.0" prefWidth="122.0" text="Quantidade">
+                                                       <cellValueFactory>
+                                                           <PropertyValueFactory property="quantidade" />
+                                                       </cellValueFactory>
+                                                   </TableColumn>
+                                                   </columns>
+                                                   <StackPane.margin>
+                                                      <Insets bottom="10.0" left="10.0" right="10.0" top="210.0" />
+                                                   </StackPane.margin>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                </TableView>
+                                             </children>
+                                          </StackPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab fx:id="tabCarrinhoProdutos" style="-fx-rotate: 0;" text="Carrinho">
+                                       <content>
+                                          <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fitHeight="450.0" fitWidth="535.0" opacity="0.6" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                                                   <image>
+                                                      <Image url="@img/ProdutosConsulta.png" />
+                                                   </image>
+                                                   <StackPane.margin>
+                                                      <Insets right="-40.0" />
+                                                   </StackPane.margin>
+                                                </ImageView>
+                                                <Region maxHeight="-Infinity" minHeight="-Infinity" prefHeight="11.0" styleClass="TabFill" StackPane.alignment="TOP_CENTER" />
+                                                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="52.0" prefWidth="658.0" style="-fx-background-color: rgba(0, 0, 0, 0.07);" StackPane.alignment="TOP_CENTER">
+                                                   <StackPane.margin>
+                                                      <Insets top="10.0" />
+                                                   </StackPane.margin>
+                                                   <children>
+                                                      <Button mnemonicParsing="false" onAction="#cancelarCompra" prefHeight="34.0" text=" Cancelar">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/Cancel.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#finalizarVenda" prefHeight="34.0" text="Finalizar Venda">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="-3.0">
+                                                               <image>
+                                                                  <Image url="@img/Cadastro.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" right="5.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                                <GridPane maxHeight="-Infinity" maxWidth="700.0" minHeight="-Infinity" prefHeight="420.0" prefWidth="638.0" StackPane.alignment="TOP_LEFT">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="419.0" minWidth="10.0" prefWidth="282.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="406.0" minWidth="10.0" prefWidth="316.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="110.0" minHeight="0.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="123.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Group />
+                                                      <Label prefHeight="19.0" prefWidth="110.0" text="Descrição" GridPane.rowIndex="1" />
+                                                      <Label prefHeight="19.0" prefWidth="141.0" text="Valor Produto: " GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets right="5.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtCarrinhoValorProduto" disable="true" prefHeight="25.0" prefWidth="17.0" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets left="115.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="txtCarrinhoDescricao" disable="true" editable="false" prefHeight="25.0" prefWidth="459.0" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="80.0" right="-50.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label prefHeight="19.0" prefWidth="145.0" text="Valor Total: " GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets right="5.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtCarrinhoValorTotal" disable="true" editable="false" prefHeight="25.0" prefWidth="148.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets left="95.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label text="Tipo:" GridPane.columnIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="5.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <Label prefHeight="19.0" prefWidth="66.0" text="Código: " />
+                                                      <TextField fx:id="txtCarrinhoCodProduto" disable="true" editable="false" prefHeight="25.0" prefWidth="138.0">
+                                                         <GridPane.margin>
+                                                            <Insets left="65.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label prefHeight="19.0" prefWidth="92.0" text="Quantidade:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="60.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtCarrinhoQdt" prefHeight="25.0" prefWidth="134.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="160.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="txtCarrinhoTipoProduto" disable="true" editable="false" prefHeight="25.0" prefWidth="138.0" GridPane.columnIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="100.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets bottom="275.0" left="20.0" right="20.0" top="20.0" />
+                                                   </padding>
+                                                   <StackPane.margin>
+                                                      <Insets bottom="25.0" left="10.0" right="10.0" top="50.0" />
+                                                   </StackPane.margin>
+                                                </GridPane>
+                                                <TableView fx:id="tvProdutosCarrinho" minWidth="-Infinity" prefHeight="300.0" prefWidth="0.0" tableMenuButtonVisible="true">
+                                                   <placeholder>
+                                                      <Label text="Nenhum produto adicionado ao carrinho..." />
+                                                   </placeholder>
+                                                   <columns>
+                                                      <TableColumn maxWidth="1000.0" minWidth="100.0" prefWidth="119.0" text="Cod. Produto">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="codProduto" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" minWidth="90.0" prefWidth="203.0" text="Nome">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="nome" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" minWidth="100.0" prefWidth="224.0" text="Tipo" visible="false">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="tipo" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" minWidth="100.0" prefWidth="224.0" text="Descrição" visible="false">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="descricao" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" minWidth="100.0" prefWidth="224.0" text="Valor" visible="false">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="valor" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" minWidth="70.0" prefWidth="122.0" text="Valor Revenda">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="valorRevenda" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" minWidth="70.0" prefWidth="122.0" text="Quantidade">
+                                                         <cellValueFactory>
+                                                            <PropertyValueFactory property="quantidade" />
+                                                         </cellValueFactory>
+                                                      </TableColumn>
+                                                   </columns>
+                                                   <StackPane.margin>
+                                                      <Insets bottom="10.0" left="10.0" right="10.0" top="210.0" />
+                                                   </StackPane.margin>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                </TableView>
+                                             </children>
+                                          </StackPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab fx:id="tabConsultaProdutos31" style="-fx-rotate: 0;" text="Histórico">
+                                       <content>
+                                          <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fitHeight="450.0" fitWidth="535.0" opacity="0.6" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                                                   <image>
+                                                      <Image url="@img/ProdutosConsulta.png" />
+                                                   </image>
+                                                   <StackPane.margin>
+                                                      <Insets right="-40.0" />
+                                                   </StackPane.margin>
+                                                </ImageView>
+                                                <Region id="seg" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="11.0" prefWidth="632.0" styleClass="TabFill" StackPane.alignment="TOP_CENTER" />
+                                                <TableView fx:id="tvHistoricoProdutos" prefHeight="400.0" prefWidth="0.0" tableMenuButtonVisible="true">
+                                                   <placeholder>
+                                                      <Label text="Não achamos nada..." />
+                                                   </placeholder>
+                                                   <columns>
+                                                      <TableColumn maxWidth="40.0" minWidth="80.0" prefWidth="40.0" text="Código" />
+                                                      <TableColumn maxWidth="700.0" minWidth="75.0" prefWidth="250.0" text="Tipo" />
+                                                      <TableColumn maxWidth="700.0" minWidth="100.0" prefWidth="224.0" text="Descrição" />
+                                                      <TableColumn maxWidth="200.0" minWidth="85.0" text="Valor" />
+                                                      <TableColumn maxWidth="173.0" minWidth="70.0" prefWidth="75.0" text="Vendas" />
+                                                      <TableColumn maxWidth="173.0" minWidth="80.0" prefWidth="75.0" text="Estoque" />
+                                                   </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                   <StackPane.margin>
+                                                      <Insets bottom="70.0" left="10.0" right="10.0" top="50.0" />
+                                                   </StackPane.margin>
+                                                   <opaqueInsets>
+                                                      <Insets />
+                                                   </opaqueInsets>
+                                                </TableView>
+                                                <Label prefHeight="20.0" prefWidth="192.0" text="Histórico de Vendas Mensal" StackPane.alignment="TOP_CENTER">
+                                                   <StackPane.margin>
+                                                      <Insets top="22.0" />
+                                                   </StackPane.margin>
+                                                </Label>
+                                                <Group StackPane.alignment="BOTTOM_CENTER">
+                                                   <StackPane.margin>
+                                                      <Insets bottom="2.0" />
+                                                   </StackPane.margin>
+                                                   <children>
+                                                      <Label text="Vendas Efetuadas:" />
+                                                      <Label layoutY="20.0" text="Estoque Registrado:" />
+                                                      <Label layoutX="181.0" layoutY="20.0" text="Valor Arrecadado:" />
+                                                      <Label layoutX="181.0" text="Valor Gasto:" />
+                                                      <Label fx:id="lblHistoricoVendasEfetuadas" layoutX="131.0" text="999" />
+                                                      <Label fx:id="lblHistoricoEstoqueRegistrado" layoutX="137.0" layoutY="20.0" text="999" />
+                                                      <Label fx:id="lblHistoricoValorGasto" layoutX="269.0" text="999" />
+                                                      <Label fx:id="lblHistoricoValorArrecadado" layoutX="303.0" layoutY="20.0" text="999" />
+                                                      <Label layoutX="339.0" text="Lucro Final:" />
+                                                      <Label fx:id="lblHistoricoLucroFinal" layoutX="419.0" text="999" />
+                                                      <Button layoutX="380.0" layoutY="30.0" mnemonicParsing="false" onAction="#limparHistorico" prefHeight="34.0" prefWidth="135.0" text="Limpar Histórico">
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/lixeira.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Button>
+                                                   </children>
+                                                </Group>
+                                             </children>
+                                          </StackPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab id="seg" fx:id="tabCadastroProdutos" text="Cadastro">
+                                       <content>
+                                          <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fitHeight="450.0" fitWidth="535.0" opacity="0.6" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                                                   <image>
+                                                      <Image url="@img/ProdutosCadastro.png" />
+                                                   </image>
+                                                   <StackPane.margin>
+                                                      <Insets right="-40.0" />
+                                                   </StackPane.margin>
+                                                </ImageView>
+                                                <GridPane maxHeight="450.0" maxWidth="755.0" minHeight="225.0" prefHeight="427.0" prefWidth="755.0" style="-fx-background-color: rgba(0,0,0,.15); -fx-background-radius: 15px;" StackPane.alignment="CENTER">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="419.0" minWidth="10.0" prefWidth="315.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="406.0" minWidth="10.0" prefWidth="283.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="110.0" minHeight="7.0" prefHeight="57.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="123.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Group>
+                                                         <children>
+                                                            <Label layoutX="83.0" layoutY="-2.0" text="Tipo:" />
+                                                         </children>
+                                                      </Group>
+                                                      <Label prefHeight="19.0" prefWidth="110.0" text="Descrição:" GridPane.rowIndex="1" />
+                                                      <Label prefHeight="20.0" prefWidth="59.0" text="Valor: R$" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets right="5.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtCadValorProdutos" prefHeight="25.0" prefWidth="17.0" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets left="60.0" right="140.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label prefHeight="19.0" prefWidth="92.0" text="Quantidade:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets left="5.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtCadQtdProdutos" prefHeight="25.0" prefWidth="188.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets left="100.0" right="100.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="txtCadDescriçãoProdutos" prefHeight="25.0" prefWidth="342.0" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="68.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label prefHeight="19.0" prefWidth="145.0" text="Valor Revenda: R$" GridPane.rowIndex="3">
+                                                         <GridPane.margin>
+                                                            <Insets right="5.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtCadValorRevendaProdutos" prefHeight="25.0" prefWidth="148.0" GridPane.rowIndex="3">
+                                                         <GridPane.margin>
+                                                            <Insets left="115.0" right="120.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label prefHeight="19.0" prefWidth="173.0" text="Lucro previsto:" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                         <GridPane.margin>
+                                                            <Insets left="5.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtCadLucroProdutos" disable="true" prefHeight="25.0" prefWidth="134.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                         <GridPane.margin>
+                                                            <Insets left="100.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <ComboBox fx:id="cbCadTipoProduto" prefHeight="25.0" prefWidth="273.0" promptText="Selecione...">
+                                                         <GridPane.margin>
+                                                            <Insets left="45.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </ComboBox>
+                                                      <Label prefHeight="19.0" prefWidth="110.0" text="Nome:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <padding>
+                                                            <Insets left="5.0" />
+                                                         </padding>
+                                                         <GridPane.margin>
+                                                            <Insets left="5.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtCadNomeProdutos" prefHeight="25.0" prefWidth="342.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="80.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets bottom="25.0" left="35.0" right="20.0" top="20.0" />
+                                                   </padding>
+                                                   <StackPane.margin>
+                                                      <Insets bottom="40.0" left="10.0" right="10.0" top="85.0" />
+                                                   </StackPane.margin>
+                                                </GridPane>
+                                                <Region id="seg" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="11.0" prefWidth="632.0" styleClass="TabFill" StackPane.alignment="TOP_CENTER" />
+                                                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="52.0" prefWidth="658.0" style="-fx-background-color: rgba(0, 0, 0, 0.1);" StackPane.alignment="TOP_CENTER">
+                                                   <StackPane.margin>
+                                                      <Insets top="10.0" />
+                                                   </StackPane.margin>
+                                                   <children>
+                                                      <Button fx:id="btnCancelarCadastroProdutos" mnemonicParsing="false" text=" Cancelar">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/Cancel.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#salvarNovoProduto" text=" Salvar">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="15.0" top="5.0" />
+                                                         </HBox.margin>
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/Save.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </StackPane>
+                                       </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
+                           </children>
+                        </StackPane>
+                     </content>
+                     <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/SProdutos.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Tab>
+                  <Tab fx:id="tabFuncionarios" text="        Funcionários">
+                     <graphic>
+                        <ImageView fitHeight="39.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/SFuncionarios.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <content>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #282828;">
+                           <children>
+                              <TabPane fx:id="tabPaneFuncionarios" accessibleRole="BUTTON" prefHeight="200.0" prefWidth="200.0" styleClass="SS" tabClosingPolicy="UNAVAILABLE">
+                                 <tabs>
+                                    <Tab fx:id="tabConsultaProdutos42" style="-fx-rotate: 0;" text="Consulta">
+                                       <content>
+                                          <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fitHeight="450.0" fitWidth="535.0" opacity="0.6" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                                                   <image>
+                                                      <Image url="@img/FuncionariosConsulta.png" />
+                                                   </image>
+                                                   <StackPane.margin>
+                                                      <Insets right="-40.0" />
+                                                   </StackPane.margin>
+                                                </ImageView>
+                                                <Region maxHeight="-Infinity" minHeight="-Infinity" prefHeight="11.0" styleClass="TabFill" StackPane.alignment="TOP_CENTER" />
+                                                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="52.0" prefWidth="658.0" style="-fx-background-color: rgba(0, 0, 0, 0.07);" StackPane.alignment="TOP_CENTER">
+                                                   <StackPane.margin>
+                                                      <Insets top="10.0" />
+                                                   </StackPane.margin>
+                                                   <children>
+                                                      <Button fx:id="btnLimparFuncionarios" mnemonicParsing="false" onAction="#limparCstFuncionarios" prefHeight="34.0" text=" Limpar">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/Cancel.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Button>
+                                                      <Button fx:id="btnFuncCstEditar" mnemonicParsing="false" onAction="#updateFuncionario" prefHeight="34.0" text="Editar Cadastro">
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/as.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Button>
+                                                      <Button fx:id="btnExluirFuncionario" mnemonicParsing="false" onAction="#excluirFuncionario" prefHeight="34.0" text="Excluir">
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/lixeira.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" right="5.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                                <GridPane maxHeight="-Infinity" maxWidth="700.0" minHeight="-Infinity" prefHeight="420.0" prefWidth="638.0" StackPane.alignment="TOP_LEFT">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="419.0" minWidth="10.0" prefWidth="265.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="406.0" minWidth="10.0" prefWidth="333.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="110.0" minHeight="0.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="123.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Group />
+                                                      <Label prefHeight="19.0" prefWidth="154.0" text="Formação:" GridPane.rowIndex="1" />
+                                                      <Label prefHeight="19.0" prefWidth="141.0" text="RG: " GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets right="5.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtCstRgFunc" prefHeight="25.0" prefWidth="17.0" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets left="32.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="txtCstFormacaoFunc" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="75.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label prefHeight="19.0" prefWidth="145.0" text="CPF:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets left="5.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtCstCpfFunc" prefHeight="25.0" prefWidth="278.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets left="45.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label text="Nome:" GridPane.columnIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="10.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <Label prefHeight="19.0" prefWidth="158.0" text="Código Funcionário:" />
+                                                      <TextField fx:id="txtFuncCstCodFunc" prefHeight="25.0" prefWidth="138.0">
+                                                         <GridPane.margin>
+                                                            <Insets left="140.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="txtCstNomeFunc" prefHeight="25.0" prefWidth="134.0" GridPane.columnIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="60.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label text="Objetivo:" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="10.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtCstObjetivoFunc" prefHeight="26.0" prefWidth="279.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="80.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets bottom="275.0" left="20.0" right="20.0" top="20.0" />
+                                                   </padding>
+                                                   <StackPane.margin>
+                                                      <Insets bottom="25.0" left="10.0" right="10.0" top="50.0" />
+                                                   </StackPane.margin>
+                                                </GridPane>
+                                                <TableView fx:id="tvCstFuncionarios" minWidth="-Infinity" prefHeight="300.0" prefWidth="0.0" tableMenuButtonVisible="true">
+                                                   <placeholder>
+                                                      <Label text="Não achamos nada..." />
+                                                   </placeholder>
+                                                   <columns>
+                                                      <TableColumn maxWidth="300.0" minWidth="90.0" prefWidth="100.0" text="Cod Fun.">
+                                                          <cellValueFactory>
+                                                              <PropertyValueFactory property="codFuncionario" />
+                                                          </cellValueFactory>
+                                                      </TableColumn>
+                                                       <TableColumn maxWidth="1000.0" minWidth="100.0" prefWidth="224.0" text="Nome">
+                                                           <cellValueFactory>
+                                                               <PropertyValueFactory property="nome" />
+                                                           </cellValueFactory>
+                                                       </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" minWidth="90.0" prefWidth="224.0" text="Objetivo">
+                                                          <cellValueFactory>
+                                                              <PropertyValueFactory property="objetivo" />
+                                                          </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" minWidth="70.0" prefWidth="122.0" text="Formação" visible="false">
+                                                          <cellValueFactory>
+                                                              <PropertyValueFactory property="formacao" />
+                                                          </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" minWidth="100.0" prefWidth="224.0" text="Sexo" visible="false">
+                                                          <cellValueFactory>
+                                                              <PropertyValueFactory property="sexo" />
+                                                          </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" minWidth="90.0" prefWidth="224.0" text="RG">
+                                                          <cellValueFactory>
+                                                              <PropertyValueFactory property="rg" />
+                                                          </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" minWidth="90.0" prefWidth="224.0" text="CPF" visible="false">
+                                                          <cellValueFactory>
+                                                              <PropertyValueFactory property="cpf" />
+                                                          </cellValueFactory>
+                                                      </TableColumn>
+                                                      <TableColumn maxWidth="1000.0" minWidth="90.0" prefWidth="224.0" text="Salário">
+                                                          <cellValueFactory>
+                                                              <PropertyValueFactory property="salario" />
+                                                          </cellValueFactory>
+                                                      </TableColumn>
+                                                   </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                   <StackPane.margin>
+                                                      <Insets bottom="10.0" left="10.0" right="10.0" top="210.0" />
+                                                   </StackPane.margin>
+                                                </TableView>
+                                             </children>
+                                          </StackPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab id="seg" text="Cadastro">
+                                       <content>
+                                          <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fitHeight="450.0" fitWidth="535.0" opacity="0.6" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                                                   <image>
+                                                      <Image url="@img/FuncionariosCadastro.png" />
+                                                   </image>
+                                                   <StackPane.margin>
+                                                      <Insets right="-40.0" />
+                                                   </StackPane.margin>
+                                                </ImageView>
+                                                <Region id="seg" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="11.0" prefWidth="632.0" styleClass="TabFill" StackPane.alignment="TOP_CENTER" />
+                                                <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="52.0" prefWidth="658.0" style="-fx-background-color: rgba(0, 0, 0, 0.1);" StackPane.alignment="TOP_CENTER">
+                                                   <StackPane.margin>
+                                                      <Insets top="10.0" />
+                                                   </StackPane.margin>
+                                                   <children>
+                                                      <Button mnemonicParsing="false" onAction="#btnCancelCadFuncionario" text=" Cancelar">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/Cancel.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#saveCadFuncionario" text=" Salvar">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="5.0" right="15.0" top="5.0" />
+                                                         </HBox.margin>
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@img/Save.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                                <GridPane alignment="CENTER" maxHeight="450.0" maxWidth="755.0" minHeight="200.0" prefHeight="467.0" prefWidth="392.0" style="-fx-background-color: rgba(0,0,0,.15); -fx-background-radius: 15px;" StackPane.alignment="CENTER">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="534.0" minWidth="10.0" prefWidth="367.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="406.0" minWidth="10.0" prefWidth="333.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints maxHeight="114.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="123.0" minHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="110.0" minHeight="7.0" prefHeight="84.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Group>
+                                                         <children>
+                                                            <Label layoutX="91.0" layoutY="-2.0" text="Objetivo:" />
+                                                         </children>
+                                                      </Group>
+                                                      <Label prefHeight="19.0" prefWidth="110.0" text="Nome:" GridPane.rowIndex="1" />
+                                                      <Label prefHeight="19.0" prefWidth="47.0" text="RG: " GridPane.rowIndex="3">
+                                                         <GridPane.margin>
+                                                            <Insets right="5.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtCadRgFunc" prefHeight="25.0" prefWidth="17.0" GridPane.rowIndex="3">
+                                                         <GridPane.margin>
+                                                            <Insets left="45.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label prefHeight="19.0" prefWidth="92.0" text="CPF:" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                         <GridPane.margin>
+                                                            <Insets left="5.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtCadCpfFunc" prefHeight="25.0" prefWidth="39.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                         <GridPane.margin>
+                                                            <Insets left="45.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="txtCadNomeFunc" minWidth="-Infinity" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="50.0" right="-285.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label prefHeight="19.0" prefWidth="145.0" text="Formação:" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets right="5.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtCadFormacaoFunc" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets left="75.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Label alignment="CENTER" prefHeight="19.0" prefWidth="95.0" text="Salário: R$" GridPane.columnIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <Group GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                         <children>
+                                                            <Label layoutX="-9.0" layoutY="1.0" text="Sexo:" />
+                                                            <RadioButton fx:id="radioFuncMasc" layoutX="34.0" mnemonicParsing="false" selected="true" text="Masculino" textFill="WHITE">
+                                                               <toggleGroup>
+                                                                  <ToggleGroup fx:id="funcSexo" />
+                                                               </toggleGroup>
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </RadioButton>
+                                                            <RadioButton layoutX="137.0" layoutY="-1.0" mnemonicParsing="false" text="Feminino" textFill="WHITE" toggleGroup="$funcSexo">
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </RadioButton>
+                                                         </children>
+                                                         <GridPane.margin>
+                                                            <Insets left="35.0" />
+                                                         </GridPane.margin>
+                                                      </Group>
+                                                      <TextField fx:id="txtCadSalarioFunc" GridPane.columnIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="88.0" right="5.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="txtCadObjetivoFunc" layoutX="120.0" layoutY="236.0" prefHeight="26.0" prefWidth="235.0">
+                                                         <GridPane.margin>
+                                                            <Insets left="64.0" />
+                                                         </GridPane.margin></TextField>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets bottom="25.0" left="35.0" right="20.0" top="20.0" />
+                                                   </padding>
+                                                   <StackPane.margin>
+                                                      <Insets bottom="40.0" left="10.0" right="10.0" top="85.0" />
+                                                   </StackPane.margin>
+                                                </GridPane>
+                                             </children>
+                                          </StackPane>
+                                       </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
+                           </children>
+                        </StackPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tabFinancas" text="          Finanças       ">
+                     <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/SFinanças.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <content>
+                        <StackPane fx:id="tabPaneAbaFinancas" prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <Group StackPane.alignment="BOTTOM_CENTER">
+                                 <children>
+                                    <Label text="Vendas Efetuadas:" />
+                                    <Label layoutY="20.0" text="Estoque Registrado:" />
+                                    <Label layoutX="182.0" layoutY="20.0" text="Valor Arrecadado:" />
+                                    <Label layoutX="181.0" text="Valor Gasto:" />
+                                    <Label fx:id="lblVE1" layoutX="131.0" text="999" />
+                                    <Label fx:id="lblER1" layoutX="137.0" layoutY="20.0" text="999" />
+                                    <Label fx:id="lblVG1" layoutX="269.0" text="999" />
+                                    <Label fx:id="lblVA1" layoutX="303.0" layoutY="20.0" text="999" />
+                                    <Label layoutX="339.0" text="Lucro Final:" />
+                                    <Label fx:id="lblVG11" layoutX="419.0" text="999" />
+                                 </children>
+                                 <StackPane.margin>
+                                    <Insets bottom="25.0" />
+                                 </StackPane.margin>
+                              </Group>
+                              <BarChart title="Faturamento Mensal">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                                 <StackPane.margin>
+                                    <Insets bottom="65.0" left="20.0" right="20.0" top="20.0" />
+                                 </StackPane.margin>
+                              </BarChart>
+                           </children>
+                        </StackPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tabAjuda" text="       Ajuda           ">
+                     <graphic>
+                        <ImageView fitHeight="53.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/SAjuda.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <content>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <Hyperlink prefHeight="48.0" prefWidth="328.0" text="Clicke aqui para ser redirecionado para nosso site,&#10;com a documentação completa do software" textAlignment="CENTER" StackPane.alignment="BOTTOM_CENTER">
+                                 <StackPane.margin>
+                                    <Insets bottom="5.0" left="50.0" />
+                                 </StackPane.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Hyperlink>
+                              <TextArea editable="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" text="Code King Zar System v1.1&#10;&#10;Este software foi projetado com o objetivo de auxiliar a academia Health Fitness a gerenciar o fluxo de dados, relativos aos funcionários, alunos e produtos fornecidos pela academia.&#10;A Documentação completa deste software pode ser encontrada no site oficial da Code King Softwares e Tecnologioas.&#10;&#10;&#10;Manual de Operação do Software:&#10;&#10;&#10;1.&#9;Clientes&#10;Na janela Clientes, dentro da aba Cadastro, você pode cadastrar seus alunos de forma rápida prática e eficiente, basta inserir os dados do aluno e salvá-los. Em Consulta você pode procurar por um aluno em específico e consultar os seus dados, enquanto na aba Pagamento você verifica se o mesmo está em dia.&#10;&#10;2.&#9;Produtos&#10;Na janela Produtos, dentro da aba Cadastro, você pode cadastrar os produtos que estão no estoque da academia juntamente com o seu preço, e assim salvar os dados para ter um controle maior sobre as vendas. Em Consulta você pode procurar por um produto em específico e ver se o mesmo ainda está em estoque, enquanto na aba Histórico você vê as vendas, tendo acesso em quais produtos que foram vendidos.&#10;&#10;3.&#9;Funcionários&#10;Na janela Funcionários, dentro da aba Cadastro, você pode cadastrar todos os funcionários da academia, seja professor ou atendente. Já na aba Consultas você pode consultar os funcionários que trabalham na academia.&#10;&#10;4.&#9;Finanças&#10;Na janela Finanças você terá acesso ao quanto que a academia está lucrando com seus clientes e vendas de produto, e quanto será a renda total ao fim do mês.&#10;&#10;&#10;Para qualquer ajuda com o ZarSystem, contate a empresa Code King, ou qualquer um de seus funcionários. Nos ache no Facebook na página Code King.&#10;&#10;&#10;" wrapText="true">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <StackPane.margin>
+                                    <Insets bottom="55.0" left="20.0" right="20.0" top="20.0" />
+                                 </StackPane.margin>
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                              </TextArea>
+                           </children>
+                        </StackPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tabSobre" text="      Sobre            ">
+                     <graphic>
+                        <ImageView fitHeight="59.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/SSobre.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <content>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <Group StackPane.alignment="BOTTOM_CENTER">
+                                 <children>
+                                    <Label layoutX="-1.0" layoutY="126.0" text="Code King Softwares e Tecnologias." />
+                                    <ImageView fitHeight="64.0" fitWidth="200.0" layoutX="12.0" layoutY="50.0">
+                                       <image>
+                                          <Image url="@img/LogoCk.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <StackPane.margin>
+                                    <Insets bottom="30.0" />
+                                 </StackPane.margin>
+                              </Group>
+                              <Group>
+                                 <children>
+                                    <ImageView fitHeight="224.0" fitWidth="224.0">
+                                       <image>
+                                          <Image url="@img/ico.png" />
+                                       </image>
+                                       <effect>
+                                          <DropShadow color="#000000b2" height="56.59" offsetX="-3.0" offsetY="3.0" radius="25.57" width="47.69" />
+                                       </effect>
+                                    </ImageView>
+                                    <Label layoutX="-11.0" layoutY="247.0" prefHeight="37.0" prefWidth="277.0" text="Academia Health Fitness Zar System 1.1 " />
+                                    <Label layoutX="-39.0" layoutY="284.0" prefHeight="76.0" prefWidth="303.0" text="ZarSystem tem como finalidade facilitar o controle de dados na academia Health Fitness." textAlignment="CENTER" wrapText="true" />
+                                 </children>
+                                 <StackPane.margin>
+                                    <Insets bottom="100.0" />
+                                 </StackPane.margin>
+                              </Group>
+                           </children>
+                        </StackPane>
+                     </content>
+                  </Tab>
+               </tabs>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets left="-5.0" />
+               </padding>
+            </TabPane>
+         </center>
+         <top>
+            <StackPane minHeight="0.0" minWidth="0.0" prefHeight="69.0" prefWidth="755.0" BorderPane.alignment="CENTER">
+               <children>
+                  <MenuBar fx:id="mainMenuBar" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="910.0" StackPane.alignment="BOTTOM_LEFT">
+                     <menus>
+                        <Menu mnemonicParsing="false" text="Arquivo">
+                           <items>
+                              <MenuItem mnemonicParsing="true" onAction="#openHistoricoProdutos" text="_Histórico de Vendas" />
+                              <MenuItem mnemonicParsing="true" onAction="#close" text="_Sair" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Cadastro">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#openCadastroClientes" text="Cadastro de Clientes" />
+                              <MenuItem mnemonicParsing="false" onAction="#openCadastroFuncionarios" text="Cadastro de Funcionários" />
+                              <MenuItem mnemonicParsing="false" onAction="#openCadastroProdutos" text="Cadastro de Produtos" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Consulta">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#openConsultaClientes" text="Consulta de Clientes" />
+                              <MenuItem mnemonicParsing="false" onAction="#openConsultaFuncionarios" text="Consulta de Funcionários" />
+                              <MenuItem mnemonicParsing="false" onAction="#openConsultaProdutos" text="Consulta de Produtos" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Sobre">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#openSobre" text="Sobre o Sistema" />
+                              <MenuItem mnemonicParsing="false" onAction="#openAjuda" text="Ajuda" />
+                           </items>
+                        </Menu>
+                     </menus>
+                  </MenuBar>
+                  <Group StackPane.alignment="TOP_RIGHT">
+                     <StackPane.margin>
+                        <Insets right="1.0" top="5.0" />
+                     </StackPane.margin>
+                     <children>
+                        <Button id="Fechar" mnemonicParsing="false" onMouseClicked="#close" prefHeight="24.0" prefWidth="24.0" styleClass="ControlButton">
+                           <font>
+                              <Font name="ADAM.CGPRO" size="8.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="13.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/Fechar.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button id="Maximize" layoutX="-26.0" mnemonicParsing="false" onMouseClicked="#maximize" prefHeight="24.0" prefWidth="24.0" styleClass="ControlButton">
+                           <font>
+                              <Font name="Rod" size="10.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="12.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/Max.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button id="Minimize" fx:id="minimize" layoutX="-52.0" mnemonicParsing="false" onMouseClicked="#minimize" prefHeight="24.0" prefWidth="24.0" styleClass="ControlButton">
+                           <font>
+                              <Font name="Arial" size="10.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="12.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/Min.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Group>
+               </children>
+            </StackPane>
+         </top>
+         <effect>
+            <DropShadow />
+         </effect>
+      </BorderPane>
+   </children>
+</StackPane>

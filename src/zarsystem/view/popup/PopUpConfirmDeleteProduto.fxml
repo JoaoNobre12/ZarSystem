@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+#closePopUp -  fecha popup e deixa zarsystem aberto
+#exit -  termina zarsystem
+-->
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<DialogPane fx:id="rootframe" minHeight="-Infinity" minWidth="-Infinity" prefHeight="173.0" prefWidth="460.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <AnchorPane maxHeight="136.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="136.0" prefWidth="389.0" styleClass="frame">
+         <children>
+            <Button id="Fechar" fx:id="close" layoutX="281.0" layoutY="14.0" mnemonicParsing="false" onAction="#closePopUp" prefHeight="24.0" prefWidth="24.0" styleClass="ControlButton" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font name="ADAM.CGPRO" size="8.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="13.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/Fechar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="131.0" layoutY="27.0" prefHeight="19.0" prefWidth="257.0" text="Deseja apagar permanentemente o produto">
+               <font>
+                  <Font name="Ubuntu" size="13.0" />
+               </font>
+            </Label>
+            <Button layoutX="159.0" layoutY="75.0" mnemonicParsing="false" onAction="#deleteProduto" prefHeight="30.0" prefWidth="80.0" text="Sim" />
+            <Button layoutX="248.0" layoutY="75.0" mnemonicParsing="false" onAction="#closePopUp" prefHeight="30.0" prefWidth="80.0" text="Não" />
+            <ImageView fitHeight="84.0" fitWidth="86.0" layoutX="30.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/Exclamacao.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblConfirmNomeProduto" layoutX="131.0" layoutY="47.0" prefHeight="17.0" prefWidth="276.0" text="Nome do produto">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+         </children>
+         <stylesheets>
+            <URL value="@../css/PopUp.css" />
+         </stylesheets>
+      </AnchorPane>
+   </content>
+   <padding>
+      <Insets left="15.0" right="15.0" top="15.0" />
+   </padding>
+</DialogPane>

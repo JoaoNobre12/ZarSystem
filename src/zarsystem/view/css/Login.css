@@ -1,0 +1,244 @@
+/*
+ * Code King Softwares e Web Sites
+ * Author: Leonardo Barney
+ * Stylesheet Padrao
+ */
+.Root{
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0.5, -1.0, 0.0);
+}
+
+#lblVercao{
+    -fx-font-size: 15px;
+}
+
+.label {
+    -fx-font-size: 24px;
+    -fx-font-family: "Ubuntu";
+    -fx-text-fill: #dedede;
+}
+.label#status {
+
+  -fx-font-size: 12;
+  -fx-text-fill: #d8d8d8;
+
+}
+
+.label#textoBR {
+  -fx-font-size: 13;
+  -fx-text-fill: #cccccc;
+
+}
+
+.label-bright {
+  -fx-font-size: 24px;
+  -fx-font-family: "Ubuntu";
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}
+
+.text-field {
+  -fx-background-insets: 0,9 9 8 9,9,10,11;
+  -fx-background-radius: 7;
+  -fx-background-color: linear-gradient(#3f3f3f, #454545);
+  -fx-text-fill: #e8e8e8;
+  -fx-effect: dropshadow( three-pass-box , transparent , 5, 0.0 , 0 , 1 );
+  -fx-text-fill: #dcdcdc;
+  -fx-prompt-text-fill: rgba(255, 255, 255, 0.3);
+  -fx-alignment: center;
+}
+
+.button{
+	-fx-cursor: hand;
+}
+.button#lb {
+
+  -fx-font-size: 12;
+  -fx-background-color: transparent;
+  -fx-background-radius: 0;
+  -fx-text-fill: #e8e8e8;
+}
+
+.button:hover#lb {
+
+    -fx-background-color: #282828;
+}
+
+.button#lb:pressed, .button#lb:default:hover:pressed {
+
+  -fx-border-color: transparent;
+  -fx-background-color: linear-gradient(#2d2d2d, #2c2c2c);
+  -fx-border-radius: 0;
+
+}
+
+.button{
+  -fx-background-insets: 0,9 9 8 9,9,10,11;
+  -fx-background-radius: 30;
+  -fx-background-color: linear-gradient(#454545, #3f3f3f);
+  -fx-text-fill: #e8e8e8;
+  -fx-effect: dropshadow( three-pass-box , transparent , 5, 0.0 , 0 , 1 );
+}
+
+.button:hover {
+    -fx-background-color: #3a3a3a;
+}
+
+.button:pressed, .button:default:hover:pressed {
+
+  -fx-border-color: white;
+  -fx-border-radius: 30;
+}
+
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+}
+
+.button:default {
+    -fx-background-color: -fx-focus-color;
+    -fx-text-fill: #ffffff;
+}
+
+.button:default:hover {
+    -fx-background-color: derive(-fx-focus-color,30%);
+}
+
+.Avatar{
+  -fx-background-insets: 0,9 9 8 9,9,10,11;
+  -fx-background-radius: 5;
+  -fx-background-color: transparent;
+  -fx-text-fill: #e8e8e8;
+  -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.1) , 5, 0.0 , 0 , 1 );
+}
+
+.Avatar:hover {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+}
+
+.Avatar:pressed, default:hover:pressed {
+  -fx-background-color: transparent;
+  -fx-border-color: rgba(255, 255, 255, 0.5);
+  -fx-border-width: 1;
+  -fx-border-radius: 5;
+}
+
+.progress-bar {
+    -fx-background-color: transparent;
+}
+
+.progress-bar .track{
+    -fx-background-color: transparent;
+    -fx-background-insets: 20;
+}
+
+.progress-bar .bar {
+    -fx-background-color: #9c3030;
+}
+
+.ControlButton{
+  -fx-background-color: transparent;
+  -fx-text-fill: #585858;
+  -fx-border-color: #585858;
+  -fx-border-width: 2;
+  -fx-border-radius: 30;
+  -fx-padding: 2;
+}
+
+.ControlButton#Fechar:pressed, .ControlButton#Fechar default:hover:pressed{
+  -fx-border-width: 2;
+  -fx-border-color: red;
+  -fx-text-fill: red;
+}
+
+.ControlButton#Maximize:pressed, .ControlButton#Minimize default:hover:pressed{
+  -fx-border-width: 2;
+  -fx-border-color: #24a969;
+  -fx-text-fill: #24a969;
+}
+
+.ControlButton#Minimize:pressed, .ControlButton#Minimize default:hover:pressed{
+  -fx-border-width: 2;
+  -fx-border-color: #39a8c0;
+  -fx-text-fill: #39a8c0;
+}
+
+/*******************/
+
+.label-header {
+    -fx-font-size: 32pt;
+    -fx-font-family: "Ubuntu";
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}
+
+.table-view {
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-padding: 5;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color:
+        transparent
+        transparent
+        derive(-fx-base, 80%)
+        transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 20pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}
+
+.split-pane:horizontal > .split-pane-divider {
+    -fx-border-color: transparent #1d1d1d transparent #1d1d1d;
+    -fx-background-color: transparent, derive(#1d1d1d,20%);
+}
+
+.split-pane {
+    -fx-padding: 1 0 0 0;
+}
+
+.menu-bar {
+    -fx-background-color: derive(#1d1d1d,20%);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,.2) , 5,0,0,4 );
+}
+
+.menu-bar .menu-item:focused {
+    -fx-background-color: #902f2f;
+}
+
+.menu, .menu-item, .context-menu {
+    -fx-background-color: derive(#1d1d1d,20%);
+}
+
+.menu-bar .label {
+    -fx-font-size: 10pt;
+    -fx-font-family: "Maven Pro";
+    -fx-text-fill: #c5c5c5;
+    -fx-opacity: 0.9;
+}
+
+.menu .left-container {
+    -fx-background-color: black;
+}
