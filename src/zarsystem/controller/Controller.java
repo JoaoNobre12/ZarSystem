@@ -7,6 +7,7 @@ package zarsystem.controller;
 import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
+import javafx.application.HostServices;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -16,27 +17,25 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import zarsystem.controller.popup.PopUpChangeDbController;
+import zarsystem.controller.popup.PopUpErroController;
 import zarsystem.model.Helpers;
 import zarsystem.model.dao.Dao;
 import zarsystem.model.database.Database;
 import zarsystem.model.domain.Aluno;
 import zarsystem.model.domain.Funcionario;
 import zarsystem.model.domain.User;
+import zarsystem.view.blur.Blur;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 
 abstract public class Controller {
     Helpers helpers = new Helpers();
@@ -44,6 +43,8 @@ abstract public class Controller {
 
     private double xOffset = 0;
     private double yOffset = 0;
+
+    public static HostServices HOST_SERVICES;
 
     private Stage loginStage;
 
@@ -54,7 +55,7 @@ abstract public class Controller {
 
     protected Funcionario currentFuncionario;
 
-    @FXML protected BorderPane frame;
+    @FXML protected BorderPane mainMenu;
 
     @FXML
     public void maximize(MouseEvent event) {
@@ -64,12 +65,13 @@ abstract public class Controller {
                 .getParent();
 
         if (!stage.isMaximized()) {
-            frame.setStyle("-fx-padding: 0 0 0 0;" +
+            mainMenu.setStyle("-fx-padding: 0 0 0 0;" +
                     "-fx-background-radius: 0;");
             stage.setMaximized(true);
             stackPane.setPadding(new Insets(0,0,0,0));
+
         } else{
-            frame.setStyle("-fx-padding: 0 5px 5px 5px;" +
+            mainMenu.setStyle("-fx-padding: 0 5px 5px 5px;" +
                     "-fx-background-radius: 7.5px;");
 
             stage.setMaximized(false);
@@ -88,7 +90,7 @@ abstract public class Controller {
      * Mostra o popup de sair, se sim fecha o software
      * */
     @FXML
-    protected void close(Event event) throws IOException{
+        protected void close(Event event) throws IOException{
 
         Parent parent = null;
 
@@ -100,8 +102,6 @@ abstract public class Controller {
         catch (ClassCastException e) {
 
             parent = mainMenuBar.getParent().getParent();
-
-            System.out.println("joao:::" + mainMenuBar.getId());
         }
         //Tela de Login
         catch (Exception e) {
@@ -121,11 +121,24 @@ abstract public class Controller {
             xOffset =  evt.getSceneX();
             yOffset =  evt.getSceneY();
 
+            frame.getScene().setFill(null);
         });
 
         frame.setOnMouseDragged(evt -> {
+
             Stage stage = (Stage) ((Node) evt.getSource()).getScene().getWindow();
             stage.setMaximized(false);
+
+            if (frame.getId().equals("mainMenu")){
+                frame.setStyle("-fx-padding: 0 5px 5px 5px;" +
+                               "-fx-background-radius: 7.5px;");
+            }else{
+                frame.setStyle("-fx-padding: 0 5px 5px 5px;" +
+                               "-fx-background-radius: 7.5px;" +
+                               "-fx-background-color: transparent;");
+            }
+
+            frame.getScene().setFill(null);
             stage.setX(evt.getScreenX() - xOffset);
             stage.setY(evt.getScreenY() - yOffset);
         });
@@ -136,6 +149,8 @@ abstract public class Controller {
     }
 
     protected void callSplash(Event event) throws IOException {
+        //fechar conexão anterior
+        closeDatabaseConnection();
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         setLoginStage(primaryStage);
@@ -168,6 +183,7 @@ abstract public class Controller {
         Scene sceneHome = new Scene(home);
         sceneHome.setFill(null);
         stage.setScene(sceneHome);
+
         stage.toBack();
 
         PauseTransition pauseHome = new PauseTransition(Duration.seconds(0.4));
@@ -228,9 +244,49 @@ abstract public class Controller {
         try {
             Dao.connection = database.createConnection();
         } catch (Exception e) {
+            System.err.println("Erro ao concectar com o banco de dados...");
             e.printStackTrace();
         }
 
+    }
+
+    protected void closeDatabaseConnection(){
+        try {
+             database.closeConnection();
+        } catch (Exception e) {
+            System.err.println("Erro ao fechar conexão com o banco de dados...");
+            e.printStackTrace();
+        }
+
+    }
+
+    protected void callUniversalErrorPopup(Event event){
+        try {
+            Parent parent = ((Node) event.getSource()).getParent().getParent().getParent().getParent().getParent()
+                    .getParent().getParent().getParent();
+
+            Blur.blurParent(parent);
+
+            PopUpErroController popUpErroController = new PopUpErroController("Erro. Tente novamente");
+
+            Stage errorStage = new Stage();
+
+            errorStage.initModality(Modality.APPLICATION_MODAL);
+            errorStage.initStyle(StageStyle.TRANSPARENT);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/zarsystem/view/popup/PopUpErro.fxml"));
+
+            loader.setController(popUpErroController);
+
+            Scene scene = new Scene(loader.load());
+            scene.setFill(null);
+            errorStage.setScene(scene);
+            errorStage.show();
+
+            errorStage.setOnHiding(evt -> Blur.unblurParent(parent));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

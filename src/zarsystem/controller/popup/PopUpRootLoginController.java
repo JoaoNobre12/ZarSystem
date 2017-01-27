@@ -11,9 +11,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import zarsystem.controller.Controller;
-import zarsystem.model.Helpers;
 import zarsystem.model.dao.Dao;
-import zarsystem.model.database.Database;
 
 import java.io.IOException;
 
@@ -52,14 +50,15 @@ public class PopUpRootLoginController extends Controller{
         if(passRootPassword.getText().equals(pass)){
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/zarsystem/view/popup/PopUpChangeDb.fxml"));
             loader.setController(Dao.popUpChangeDbController);
             Scene scene = new Scene(loader.load());
 
             scene.setFill(null);
             stage.setScene(scene);
-
+        }
+        else {
+            System.out.println("Root login inválido.");
         }
     }
 }

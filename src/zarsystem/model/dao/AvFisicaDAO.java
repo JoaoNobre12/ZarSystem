@@ -2,6 +2,7 @@ package zarsystem.model.dao;
 
 import zarsystem.model.domain.Aluno;
 import zarsystem.model.domain.AvaliacaoFisica;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

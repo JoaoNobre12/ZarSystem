@@ -5,6 +5,7 @@ package zarsystem.model.dao;
  * Created by joao on 04/09/16.
  */
 
+import javafx.scene.control.TextField;
 import zarsystem.controller.MenuController;
 import zarsystem.model.Helpers;
 import zarsystem.model.domain.Aluno;
@@ -309,11 +310,12 @@ public class AlunoDAO extends Dao{
     public void updatePagamentos() throws SQLException{
         System.out.print("Mudando pagamentos... ");
 
-        String query = "UPDATE alunos SET pagamento = '0' WHERE dia_pagamento < day(now()) AND MONTH(NOW()) != MONTH(data_ultimo_pagamento)";
+        String query = "UPDATE alunos SET pagamento = '0' WHERE (dia_pagamento < day(now()) AND MONTH(NOW()) != MONTH(data_ultimo_pagamento))";
         PreparedStatement statement = connection.prepareStatement(query);
 
         System.out.println(statement.executeUpdate() + " linhas afetadas.");
     }
+
 
     /**
      * Registra o pagamento com base no código do aluno
@@ -362,6 +364,56 @@ public class AlunoDAO extends Dao{
             alunoPendente.setPagamento(result.getBoolean("pagamento") ? "Realizado" : "Pendente");
 
             listPendentes.add(alunoPendente);
+        }
+
+        return listPendentes;
+    }
+
+    /**
+     * Pesquisar alunos com pagamentos pendentes
+     * @return um arrayList com os alunos que se encaixam na pesquisa
+     * @since 17/12/16
+     * */
+    public List<Aluno> searchPagamentosPendentes(TextField textField, String value){
+
+        String query;
+
+        if (textField.getId().equals("txtPagNomeAluno")){
+            query  =  (value.isEmpty()) ? "SELECT * FROM alunos WHERE pagamento = '0'" : "SELECT * FROM alunos WHERE pagamento = '0' AND nome LIKE '"+ value +"_%'";
+        }
+        else {
+            query  =  (value.isEmpty()) ? "SELECT * FROM alunos WHERE pagamento = '0'" : "SELECT * FROM alunos WHERE pagamento = '0' AND cod_matricula LIKE '"+ value +"_%'";
+        }
+
+        List<Aluno> listPendentes = new ArrayList<>();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            ResultSet result = preparedStatement.executeQuery();
+
+            while (result.next()){
+                Aluno alunoPendente = new Aluno();
+
+                alunoPendente.setCodMatricula(result.getInt("cod_matricula"));
+                alunoPendente.setPlano(result.getString("plano"));
+
+                String sexo = (result.getString("sexo").equals("M")) ? "Masculino" : "Feminino";
+
+                alunoPendente.setSexo(sexo);
+                alunoPendente.setNome(result.getString("nome"));
+                alunoPendente.setRg(result.getString("rg"));
+                alunoPendente.setCpf(result.getString("cpf"));
+                alunoPendente.setDiaPagamento(result.getInt("dia_pagamento"));
+                alunoPendente.setDtNasc(Helpers.parseStringDate(result.getDate("nascimento")));
+                alunoPendente.setPagamento(result.getBoolean("pagamento") ? "Realizado" : "Pendente");
+
+                listPendentes.add(alunoPendente);
+            }
+
+        } catch (SQLException | ParseException e) {
+            Blur.logLabel(menuController.lblUniversalLogs, "Erro ao fazer pesquisa.");
+            e.printStackTrace();
         }
 
         return listPendentes;

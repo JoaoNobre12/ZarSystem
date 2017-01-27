@@ -1,0 +1,50 @@
+<dataSource name="MySQL - fit@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="fit">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="information_schema" />
+    <schema id="3" name="mysql" />
+    <schema id="4" name="performance_schema" />
+    <schema id="5" name="phpmyadmin" />
+    <schema id="6" name="sys" />
+    <schema id="7" name="testej" />
+    <table id="8" parent="1" name="aluno" />
+    <column id="9" parent="8" name="cod_matricula">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="10" parent="8" name="plano">
+      <mandatory>1</mandatory>
+      <data-type>varchar(70)|0</data-type>
+    </column>
+    <column id="11" parent="8" name="nome">
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="12" parent="8" name="rg">
+      <mandatory>1</mandatory>
+      <data-type>varchar(15)|0</data-type>
+    </column>
+    <column id="13" parent="8" name="cpf">
+      <mandatory>1</mandatory>
+      <data-type>varchar(15)|0</data-type>
+    </column>
+    <column id="14" parent="8" name="dtNasc">
+      <mandatory>1</mandatory>
+      <data-type>varchar(15)|0</data-type>
+    </column>
+    <column id="15" parent="8" name="avFisica">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="16" parent="8" name="pago">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(1)|0</data-type>
+    </column>
+    <key id="17" parent="8" name="PRIMARY">
+      <columns>cod_matricula</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>

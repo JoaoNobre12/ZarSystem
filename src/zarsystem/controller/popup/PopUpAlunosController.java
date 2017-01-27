@@ -1,14 +1,7 @@
 package zarsystem.controller.popup;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import zarsystem.controller.Controller;
 import zarsystem.controller.MenuController;
 import zarsystem.model.Helpers;
@@ -16,9 +9,7 @@ import zarsystem.model.dao.AlunoDAO;
 import zarsystem.model.dao.AvFisicaDAO;
 import zarsystem.model.domain.Aluno;
 import zarsystem.model.domain.AvaliacaoFisica;
-import zarsystem.view.blur.Blur;
 
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 

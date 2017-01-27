@@ -5,6 +5,8 @@ package zarsystem.controller;
  * Controlador do view menu principal
  */
 
+import javafx.application.HostServices;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,27 +17,31 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import zarsystem.controller.popup.*;
+import zarsystem.model.Finances;
 import zarsystem.model.Helpers;
 import zarsystem.model.dao.AlunoDAO;
+import zarsystem.model.dao.ClienteSiteDAO;
 import zarsystem.model.dao.FuncionarioDAO;
 import zarsystem.model.dao.ProdutoDao;
-import zarsystem.model.domain.Aluno;
-import zarsystem.model.domain.Funcionario;
-import zarsystem.model.domain.Produto;
+import zarsystem.model.domain.*;
 import zarsystem.view.blur.Blur;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class MenuController extends Controller {
@@ -45,9 +51,20 @@ public class MenuController extends Controller {
     public Label lblFuncionariosCadastrados;
     public Label lblProdutosCadastrados;
     public Label lblClientesCadastrados;
-    public Button btnPagLimparAluno;
+    public Label lblHomeRendaPrevista;
 
+    //Finanças
+    public BarChart<String, Double> barChartVendas;
+    public BarChart<String, Double> barChartLucro;
+    public Label lblFinancasVendasEfetuadas;
+    public Label lblFinancasEstoqueRegistrado;
+    public Label lblFinancasValorGasto;
+    public Label lblFinancasValorArrecadado;
+    public Label lblFinancasLucroFinal;
+    public Label lblFinancasLucroAteAgora;
+    public Hyperlink hplOpenDocumentation;
 
+    //Aluno
     private Aluno aluno = new Aluno();
     private Helpers helpers = new Helpers();
 
@@ -69,6 +86,7 @@ public class MenuController extends Controller {
     @FXML private Tab tabFinancas;
     @FXML private Tab tabAjuda;
     @FXML private Tab tabSobre;
+    @FXML private Tab tabEmails;
 
 
     /*
@@ -79,17 +97,15 @@ public class MenuController extends Controller {
     @FXML
     public void initialize(){
         /*arastar*/
-        super.dragWindow(frame);
-
-        //só na tela de splash
-        connectDatabase();
+        super.dragWindow(mainMenu);
 
         /*Log de boas vindas*/
         Blur.logLabel(lblUniversalLogs, "Bem-vindo!");
 
         /*Tipo de usuário*/
-        /*System.out.println("Tipo de usuário: " + user.getTipo());
-        if (user.getTipo().equals("atendente")){
+        System.out.println("Tipo de usuário: " + user.getTipo());
+        super.connectDatabase();
+        /*if (user.getTipo().equals("atendente")){
             tabFinancas.setDisable(true);
             tabFuncionarios.setDisable(true);
         }*/
@@ -102,36 +118,25 @@ public class MenuController extends Controller {
 
         //Inicializações da aba de produtos
         initsProdutos();
+
+        //Carregar Gráfico
+        tabFinancas.setOnSelectionChanged(event -> {
+            Finances finances = new Finances(this);
+            finances.loadChart();
+        });
+
+        //Aba Emails
+        initsEmails();
+
+        hplOpenDocumentation.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+
+            File file = new File("MANUAL_DO_SOFTWARE.pdf");
+
+            HostServices hostServices = HOST_SERVICES;
+            hostServices.showDocument(file.getAbsolutePath());
+        });
     }
-    /*-**********************************SERVEM PARA TODOS OS TABS*****************************************************/
-     private void callUniversalErrorPopup(Event event){
-         try {
-             Parent parent = ((Node) event.getSource()).getParent().getParent().getParent().getParent().getParent()
-                     .getParent().getParent().getParent();
 
-             Blur.blurParent(parent);
-
-             PopUpErroController popUpErroController = new PopUpErroController("Erro ao cadastrar dados. Tente novamente");
-
-             Stage errorStage = new Stage();
-
-             errorStage.initModality(Modality.APPLICATION_MODAL);
-             errorStage.initStyle(StageStyle.TRANSPARENT);
-
-             FXMLLoader loader = new FXMLLoader(getClass().getResource("/zarsystem/view/popup/PopUpErro.fxml"));
-
-             loader.setController(popUpErroController);
-
-             Scene scene = new Scene(loader.load());
-             scene.setFill(null);
-             errorStage.setScene(scene);
-             errorStage.show();
-
-             errorStage.setOnHiding(evt -> Blur.unblurParent(parent));
-         } catch (IOException e) {
-             e.printStackTrace();
-         }
-     }
     /*-**********************************MENUVIEW*********************************************************************/
     public void openCadastroClientes() {
         System.out.println("Aba Cadastro de Clientes");
@@ -151,7 +156,7 @@ public class MenuController extends Controller {
         System.out.println("Aba Cadastro de Produto");
 
         tabPanePrincipal.getSelectionModel().select(2);
-        tabPaneProdutos.getSelectionModel().select(1);
+        tabPaneProdutos.getSelectionModel().select(3);
     }
 
     public void openConsultaClientes() {
@@ -232,8 +237,6 @@ public class MenuController extends Controller {
     @FXML private TextField txtNomeAluno;
     @FXML private TextField txtNumMatAluno;
     @FXML private TextField txtValorMensalidade;
-    @FXML private TextField txtValorCarteirinha;
-    @FXML private TextField txtValorMatricula;
     @FXML private Button btnLimparAluno;
     @FXML private RadioButton radioSexoFeminino;
     @FXML private RadioButton radioSexoMasculino;
@@ -245,6 +248,8 @@ public class MenuController extends Controller {
     @FXML private TextField txtPagNomeAluno;
     @FXML private TextField txtPagValorPlano;
     @FXML private TextField txtPagPlano;
+    @FXML private Button btnPagRegistrarPagamento;
+    @FXML private Button btnPagLimparAluno;
 
     private Aluno selectedAluno; // há um current aluno na classe parent, refatorar....
 
@@ -281,7 +286,7 @@ public class MenuController extends Controller {
         Helpers.maskCpf(txtCpfAluno);
 
         /*inicializações*/
-        helpers.initializes(lblTime, frame, cbBoxPlanoCliente, cbPlanoAluno,
+        helpers.initializes(lblTime, mainMenu, cbBoxPlanoCliente, cbPlanoAluno,
                 cbBoxDiaDePagamento, cbListPlano, cbListDiaPagamento);
 
         /*REFATORAR*/
@@ -289,8 +294,6 @@ public class MenuController extends Controller {
         cbBoxPlanoCliente.getSelectionModel().selectedItemProperty().addListener(evt -> {
 
             txtValorMensalidade.setText(String.valueOf(super.valorPlano(cbBoxPlanoCliente.getSelectionModel().getSelectedIndex())).replace('.',','));
-            txtValorCarteirinha.setText("5,00");
-            txtValorMatricula.setText("5,00");
 
             cbBoxDiaDePagamento.getSelectionModel().select(0);
         });
@@ -302,7 +305,7 @@ public class MenuController extends Controller {
         btnExcluirAluno.disableProperty().bind(tableAluno.getSelectionModel().selectedItemProperty().isNull());
         btnAlunoCdtAvFisica.disableProperty().bind(tableAluno.getSelectionModel().selectedItemProperty().isNull());
         btnAlunoEdtCadastro.disableProperty().bind(tableAluno.getSelectionModel().selectedItemProperty().isNull());
-
+        btnPagRegistrarPagamento.disableProperty().bind(tablePagamentoAlunos.getSelectionModel().selectedItemProperty().isNull());
 
         //Consultar via ComboBox
         cbPlanoAluno.addEventHandler(ActionEvent.ACTION, event -> {
@@ -392,6 +395,31 @@ public class MenuController extends Controller {
             e.printStackTrace();
             System.err.println("Erro ao converter datas na consulta de pagamentos pendentes" + e.getMessage());
         }
+
+        /*-****************************************pesquisa aba pagamentos*********************************/
+
+        EventHandler<MouseEvent> unSelectTable = new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                tablePagamentoAlunos.getSelectionModel().select(null);
+            }
+        };
+
+        txtPagNumMatricula.addEventHandler(MouseEvent.MOUSE_CLICKED, unSelectTable);
+        txtPagNomeAluno.addEventHandler(MouseEvent.MOUSE_CLICKED, unSelectTable);
+
+            txtPagNumMatricula.textProperty().addListener((observable, oldValue, newValue) ->{
+                if (tablePagamentoAlunos.getSelectionModel().getSelectedItems().isEmpty())
+                    tablePagamentoAlunos.setItems(FXCollections.observableArrayList(alunoDAO.searchPagamentosPendentes(txtPagNumMatricula, newValue)));
+            }
+            );
+
+            txtPagNomeAluno.textProperty().addListener((observable, oldValue, newValue) ->{
+                if (tablePagamentoAlunos.getSelectionModel().getSelectedItems().isEmpty())
+                    tablePagamentoAlunos.setItems(FXCollections.observableArrayList(alunoDAO.searchPagamentosPendentes(txtPagNomeAluno, newValue)));
+            }
+            );
+
     }
 
     /**
@@ -453,7 +481,7 @@ public class MenuController extends Controller {
 
                 //limpar campos
                 Helpers.clearTextFields(txtNomeCliente,txtCPFcliente,txtRGcliente,
-                        txtValorCarteirinha, txtValorMatricula, txtValorMensalidade);
+                        txtValorMensalidade);
                 Helpers.clearDatePicker(dtNascCliente);
                 cbBoxPlanoCliente.getSelectionModel().select(-1);
                 tabPaneClientes.getSelectionModel().select(0);
@@ -478,7 +506,7 @@ public class MenuController extends Controller {
     @FXML
     private void clearFieldsCliente() {
         Helpers.clearTextFields(txtNomeCliente,txtCPFcliente,txtRGcliente,
-                txtValorCarteirinha, txtValorMatricula, txtValorMensalidade);
+                txtValorMensalidade);
         Helpers.clearDatePicker(dtNascCliente);
         cbBoxPlanoCliente.getSelectionModel().select(-1);
         cbBoxDiaDePagamento.getSelectionModel().select(-1);
@@ -608,45 +636,40 @@ public class MenuController extends Controller {
     public void consultAlunos(KeyEvent event){
         TextField field = (TextField) event.getSource();
 
-        String column = ""; //culuna da tabela, nome, rg, etc
-        String dados = field.getText() + event.getCharacter();
+        field.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                tableAluno.getSelectionModel().select(null);
+            }
+        });
 
-        System.out.println("Pesquisar por: " + field.getText());
+        field.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (! newValue.isEmpty()){
+                switch (field.getId()){
+                    case "txtNumMatAluno":
+                        tableAluno
+                                .setItems(FXCollections.observableArrayList(alunoDAO.searchAluno("cod_matricula", newValue)));
+                        break;
+                    case "txtNomeAluno":
+                        tableAluno
+                                .setItems(FXCollections.observableArrayList(alunoDAO.searchAluno("nome", newValue)));
+                        break;
+                    case "txtRgAluno":
+                        tableAluno
+                                .setItems(FXCollections.observableArrayList(alunoDAO.searchAluno("rg", newValue)));
+                        break;
+                    case "txtCpfAluno":
+                        tableAluno
+                                .setItems(FXCollections.observableArrayList(alunoDAO.searchAluno("cpf", newValue)));
+                        break;
+                    default: Blur.logLabel(lblUniversalLogs, "Erro ao fazer consulta..."); break;
+                }
+            }
+            else {
+                loadTableAlunos();
+            }
+        });
 
-        if(field.getId().equals("txtNumMatAluno")){
-            column = "cod_matricula";
-        }
-        else if(field.getId().equals("txtNomeAluno")){
-            column = "nome";
-        }
-        else if(field.getId().equals("txtCpfAluno")){
-            column = "cpf";
-        }
-        else if(field.getId().equals("txtRgAluno")){
-            column = "rg";
-        }
-        else {
-            System.err.println("Erro na consulta, consultaAluno");
-        }
-
-
-        if((".-abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVWYXZáéíóúÁÉÍÓÚ1234567890 ".contains(event.getCharacter()))){
-            //System.out.println("SELECT * FROM alunos WHERE nome = "+field.getText() + event.getCharacter()+" "+field.getId());
-
-            List<Aluno> alunos = alunoDAO.searchAluno(column, dados);
-
-            tableAluno.setItems(FXCollections.observableArrayList(alunos));
-        }
-        else {
-            dados = field.getText();
-
-            System.out.println(event.getCode());
-            System.out.println("O texto apagado fica: "+field.getText());
-
-            List<Aluno> alunos = alunoDAO.searchAluno(column, dados);
-
-            tableAluno.setItems(FXCollections.observableArrayList(alunos));
-        }
     }
 
     /**
@@ -896,6 +919,9 @@ public class MenuController extends Controller {
     @FXML private Button btnCancelarCadastroProdutos;
     @FXML private TextField txtCstDescricaoProdutos;
     @FXML private TextField txtCstCodProdutos;
+    @FXML private Button btnFinalizarVenda;
+    @FXML private Button btnExcluirProduto;
+    @FXML private Button btnAdicionarAoCarrinho;
     @FXML private ComboBox<String> cbCstTipoProdutos;
     @FXML private TextField txtCstQtdProdutos;
     @FXML private TableView<Produto> tvCstProdutos;
@@ -903,10 +929,10 @@ public class MenuController extends Controller {
     @FXML private TextField txtCarrinhoValorProduto;
     @FXML private TextField txtCarrinhoDescricao;
     @FXML private TextField txtCarrinhoValorTotal;
+    private static double valorTotal;
     @FXML private TextField txtCarrinhoCodProduto;
-    @FXML private TextField txtCarrinhoQdt;
     @FXML private TextField txtCarrinhoTipoProduto;
-    @FXML private TableView<Produto> tvHistoricoProdutos;
+    @FXML private TableView<Venda> tvHistoricoProdutos;
     @FXML private TextField txtCadNomeProdutos;
     @FXML private TextField txtCadQtdProdutos;
     @FXML private TextField txtCadDescriçãoProdutos;
@@ -921,6 +947,7 @@ public class MenuController extends Controller {
     public Label lblHistoricoValorGasto;
     public Label lblHistoricoValorArrecadado;
     public Label lblHistoricoLucroFinal;
+    public Label lblHistoricoLucroAteAgora;
 
     //combo box tipo do produto
     public ObservableList<String> cbListTipoProduto = FXCollections.observableArrayList(
@@ -928,13 +955,19 @@ public class MenuController extends Controller {
     );
 
     //Lista com os produtos adicionados ao carrinho
-    public List<Produto> listCarrinho = new ArrayList<>();
+    public ObservableList<Produto> listCarrinho = FXCollections.observableArrayList();
 
     private void initsProdutos(){
         //itens do comboBox de cadastro e consulta de produto
         cbCadTipoProduto.setItems(cbListTipoProduto);
         cbCstTipoProdutos.setItems(cbListTipoProduto);
 
+        /*Desabilitar botões que precisam de seleção*/
+
+        btnExcluirProduto.disableProperty().bind(tvCstProdutos.getSelectionModel().selectedItemProperty().isNull());
+        btnAdicionarAoCarrinho.disableProperty().bind(tvCstProdutos.getSelectionModel().selectedItemProperty().isNull());
+
+        btnFinalizarVenda.disableProperty().bind(Bindings.size(listCarrinho).isEqualTo(0));
         //carregar produtos já cadastrados
         loadTableCstProdutos();
 
@@ -1020,27 +1053,50 @@ public class MenuController extends Controller {
                 txtCarrinhoDescricao.setText(p.getDescricao());
                 txtCarrinhoTipoProduto.setText(p.getTipo());
                 txtCarrinhoValorProduto.setText(String.valueOf(p.getValorRevenda()));
-                txtCarrinhoQdt.setText(String.valueOf(p.getQuantidade()));
             });
             return row;
         }); //Mudar Itens do field consulta
+
     }
 
     /**
      * Consulta banco de dados e carrega tabela e muda label de produtos cadastrados na aba home
+     * Também carrega tabela de histórico e dados
      * */
     public void loadTableCstProdutos(){
         try {
             System.out.print("Carregando tabela de produtos... ");
             tvCstProdutos.setItems(FXCollections.observableArrayList(produtoDao.consultDb()));
+            tvHistoricoProdutos.setItems(produtoDao.consultHistorico());
 
             //Carregar a quantidade de funcionários cadastrados pela quantidade de linhas da tabela
             lblProdutosCadastrados.setText(String.valueOf(tvCstProdutos.getItems().size()));
 
+            //carrega dados do historico
+            lblHistoricoVendasEfetuadas.setText(String.valueOf(produtoDao.produtosVendidos()));
+            lblHistoricoValorGasto.setText(String.valueOf(produtoDao.valorGasto()));
+            lblHistoricoEstoqueRegistrado.setText(String.valueOf(produtoDao.estoqueTotalRegistrado()));
+            lblHistoricoLucroFinal.setText(String.valueOf(produtoDao.lucroTotalPrevisto()));
+            lblHistoricoValorArrecadado.setText(String.valueOf(produtoDao.valorArrecadado()));
+            lblHistoricoLucroAteAgora.setText(String.valueOf(produtoDao.lucroAteAgora()));
+
+            //carrega dados da aba finanças
+            lblFinancasVendasEfetuadas.setText(String.valueOf(produtoDao.produtosVendidos()));
+            lblFinancasValorGasto.setText(String.valueOf(produtoDao.valorGasto()));
+            lblFinancasEstoqueRegistrado.setText(String.valueOf(produtoDao.estoqueTotalRegistrado()));
+            lblFinancasLucroFinal.setText(String.valueOf(produtoDao.lucroTotalPrevisto()));
+            lblFinancasValorArrecadado.setText(String.valueOf(produtoDao.valorArrecadado()));
+            lblFinancasLucroAteAgora.setText(String.valueOf(produtoDao.lucroAteAgora()));
+
+            //Carrega lucro previsto da aba home
+            lblHomeRendaPrevista.setText(String.valueOf(produtoDao.lucroTotalPrevisto()));
+
             System.out.println("Ok.");
-        } catch (SQLException e) {
+        } catch (SQLException  e) {
             Blur.logLabel(lblUniversalLogs, "Erro ao consultar produtos...");
             System.out.println("Erro");
+            e.printStackTrace();
+        } catch (Exception  e) {
             e.printStackTrace();
         }
     }
@@ -1049,14 +1105,16 @@ public class MenuController extends Controller {
      * Carrega tabela da aba carrinho
      * */
     public void loadTableCarrinho(){
-            System.out.print("Mudando carrinho... ");
-            tvProdutosCarrinho.setItems(FXCollections.observableArrayList(listCarrinho));
-            System.out.println("Ok.");
+        //setar txt valor total
+        txtCarrinhoValorTotal.setText(String.valueOf(valorTotal));
+        System.out.print("Mudando carrinho... ");
+        tvProdutosCarrinho.setItems(FXCollections.observableArrayList(listCarrinho));
+        System.out.println("Ok.");
     }
 
     /**
      * Carrega a classe de deomínio de produtos com os valores dos txtFields de cadastro
-     * @return o novo produto cadastrado
+     * @return novo produto cadastrado
      * */
     private Produto getNewProduto(){
         Produto produto = new Produto();
@@ -1090,6 +1148,7 @@ public class MenuController extends Controller {
                 produtoDao.insertDB(getNewProduto());
                 loadTableCstProdutos();
                 openConsultaProdutos();
+                Blur.logLabel(lblUniversalLogs, "Produto cadastrado com sucesso!");
             } catch (SQLException e) {
                 callUniversalErrorPopup(actionEvent);
                 Blur.logLabel(lblUniversalLogs, "Erro ao fazer cadastro");
@@ -1101,13 +1160,53 @@ public class MenuController extends Controller {
     }
 
     @FXML
-    public void finalizarVenda(ActionEvent actionEvent) {
+    public void iniciarVenda(ActionEvent actionEvent) {
         System.out.println("Finalizar Venda");
 
-        //limpa o carrinho
-        listCarrinho.clear();
-        loadTableCarrinho();
+        Parent parent = ((Node) actionEvent.getSource()).getParent().getParent().getParent().getParent().getParent()
+                .getParent().getParent().getParent();
 
+        Blur.blurParent(parent);
+
+        Stage popUp = new Stage();
+        try {
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initStyle(StageStyle.TRANSPARENT);
+
+            ConfirmarVendaController confirmarVendaController = new ConfirmarVendaController(this, listCarrinho);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/zarsystem/view/popup/PopUpConfirmarVenda.fxml"));
+            loader.setController(confirmarVendaController);
+
+            Scene scene = new Scene(loader.load());
+            scene.setFill(null);
+            popUp.setScene(scene);
+            popUp.show();
+            popUp.setOnHiding(evt -> Blur.unblurParent(parent));
+
+        } catch (IOException e) {
+            Blur.unblurParent(parent);
+            e.printStackTrace();
+        }
+    }
+
+    public void terminarVenda(){
+        System.out.println("Venda terminada");
+        //limpa o carrinho
+        Helpers.clearTextFields(txtCarrinhoValorProduto, txtCarrinhoDescricao, txtCarrinhoValorTotal, txtCarrinhoCodProduto,
+                txtCarrinhoTipoProduto, txtCarrinhoValorTotal);
+        listCarrinho.clear();
+        valorTotal = 0;
+        loadTableCarrinho();
+        try {
+            tvHistoricoProdutos.setItems(produtoDao.consultHistorico());
+            loadTableCstProdutos();
+        } catch (SQLException e) {
+            Blur.logLabel(lblUniversalLogs, "Erro ao consultar histórico");
+            e.printStackTrace();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
         openConsultaProdutos();
     }
 
@@ -1147,36 +1246,22 @@ public class MenuController extends Controller {
 
     @FXML
     public void adicionarAoCarrinho(ActionEvent actionEvent) {
-        System.out.print("Adicionar ao carrinho... ");
+        System.out.print("\nAdicionar ao carrinho... ");
 
         Produto produto = tvCstProdutos.getSelectionModel().getSelectedItem();
 
-        produto.setQuantidade(1);
+        valorTotal += produto.getValorRevenda();
 
-
-        if (!listCarrinho.contains(produto)) {
-            listCarrinho.add(produto);
-        }else {
-            for (Produto p: listCarrinho){
-                if(p.getNome().equals(produto.getNome())){
-                    System.out.println("joao");
-                    int oldQtd = p.getQuantidade();
-                    p.setQuantidade(oldQtd + 1);
-                    listCarrinho.remove(produto);
-                    listCarrinho.add(p);
-                }
-            }
-        }
+        listCarrinho.add(produto);
 
         loadTableCarrinho();
-        calcularVenda();
-        System.out.println("Ok.");
     }
 
     @FXML
     public void cancelarCompra(ActionEvent actionEvent) {
+        valorTotal = 0;
         Helpers.clearTextFields(txtCarrinhoValorProduto, txtCarrinhoDescricao, txtCarrinhoValorTotal, txtCarrinhoCodProduto,
-                txtCarrinhoQdt, txtCarrinhoTipoProduto);
+                txtCarrinhoTipoProduto, txtCarrinhoValorTotal);
 
         openConsultaProdutos();
 
@@ -1185,22 +1270,159 @@ public class MenuController extends Controller {
         loadTableCarrinho();
     }
 
-    /**
-     * Mudas as quantidades na tabela carrinho e os preços na consulta
-     * */
-    private void calcularVenda(){
-        double valorTotal = 0;
-        for(Produto p : tvProdutosCarrinho.getItems()){
-            valorTotal += p.getValorRevenda();
-
-        }
-
-        System.out.println("O valor total até agora é: " + valorTotal);
-
-        txtCarrinhoValorTotal.setText(String.valueOf(valorTotal));
-    }
 
     public void limparHistorico(ActionEvent actionEvent) {
 
+
+        Parent parent = ((Node) actionEvent.getSource()).getParent().getParent().getParent().getParent().getParent()
+                .getParent().getParent().getParent();
+
+        Blur.blurParent(parent);
+
+        Stage popUp = new Stage();
+        try {
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initStyle(StageStyle.TRANSPARENT);
+
+            ConfirmDeleteVendaController confirmarDelVendaController = new ConfirmDeleteVendaController(this);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/zarsystem/view/popup/PopUpConfirmDeleteVendas.fxml"));
+            loader.setController(confirmarDelVendaController);
+
+            Scene scene = new Scene(loader.load());
+            scene.setFill(null);
+            popUp.setScene(scene);
+            popUp.show();
+            popUp.setOnHiding(evt -> Blur.unblurParent(parent));
+
+        } catch (IOException e) {
+            Blur.unblurParent(parent);
+            e.printStackTrace();
+        }
+    }
+
+    /*=*********************************************EMAILS************************************************************/
+    //Emails
+    ClienteSiteDAO clienteSiteDAO = new ClienteSiteDAO();
+    public TableView<ClienteSite> tvEmails;
+    @FXML private Button btnEmailsExcluir;
+    @FXML private Button btnEmailsLimpar;
+    public TextField txtEmailsEmail;
+    public TextField txtEmailsNome;
+    public TextField txtEmailsPlano;
+
+    /**Carrega a tabela de emails com consulta do banco de dados*/
+    public void loadTableEmails() {
+        tvEmails.setItems(FXCollections.observableArrayList(clienteSiteDAO.consultDb()));
+    }
+
+    /**Abre Popup de detalhes do email do aluno*/
+    private void callEmailDetails(ClienteSite clienteSite, Event evt) throws IOException{
+
+        //Borrar fundo
+        Parent parent = ((Node) evt.getSource()).getParent().getParent().getParent().getParent().getParent()
+                .getParent().getParent().getParent().getParent(); // tatatatatataravô
+        Blur.blurParent(parent);
+
+        //Chamar detalhes
+        Stage popUp = new Stage();
+        popUp.initModality(Modality.APPLICATION_MODAL);
+        popUp.initStyle(StageStyle.TRANSPARENT);
+
+        PopUpDuvidasController popUpDuvidasController = new PopUpDuvidasController(this, clienteSite);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/zarsystem/view/popup/PopUpDuvidas.fxml"));
+        loader.setController(popUpDuvidasController);
+
+        Scene scene = new Scene(loader.load());
+        scene.setFill(null);
+        popUp.setScene(scene);
+        popUp.show();
+
+        popUp.setOnHiding(event -> Blur.unblurParent(parent));
+    }
+
+
+    private void initsEmails() {
+        tabEmails.setOnSelectionChanged(event -> {
+            loadTableEmails();
+        });
+        loadTableEmails();
+
+        //Desabilitar botões se não tiver item selecionado na tabela
+        btnEmailsExcluir.disableProperty().bind(tvEmails.getSelectionModel().selectedItemProperty().isNull());
+        btnEmailsLimpar.disableProperty().bind(tvEmails.getSelectionModel().selectedItemProperty().isNull());
+
+        // pegar clicks nas linhas da tabela de emails
+        tvEmails.setRowFactory(tv -> {
+            TableRow<ClienteSite> row = new TableRow<>();
+
+            row.setOnMouseClicked(evt -> {
+
+                ClienteSite c = tvEmails.getSelectionModel().getSelectedItem();
+
+                txtEmailsEmail.setText(c.getEmail());
+                txtEmailsNome.setText(c.getNome());
+                txtEmailsPlano.setText(c.getPlano());
+
+                //Abrir detalhes do aluno
+                if((evt.getClickCount() == 2) && !(row.isEmpty())){
+                    try {
+                        ClienteSite rowData = row.getItem();
+
+                        callEmailDetails(rowData, evt);
+                    } catch (IOException e) {
+                        Blur.logLabel(lblUniversalLogs, "Erro ao carregar dados do aluno.");
+                        e.printStackTrace();
+                    }
+                }
+            });
+            return row;
+        }); //Mudar Itens do field consulta de emails
+
+    }
+
+    /**Limpa os campos da aba Emails*/
+    public void limparEmails() {
+
+        loadTableEmails();
+        Helpers.clearTextFields(txtEmailsEmail, txtEmailsNome, txtEmailsPlano);
+    }
+
+    public void excluirEmail(ActionEvent actionEvent) {
+        try {
+            clienteSiteDAO.deleteEmail(tvEmails.getSelectionModel().getSelectedItem().getCodCliente());
+            loadTableEmails();
+            Blur.logLabel(lblUniversalLogs, "Email excluído com sucesso!");
+        } catch (SQLException e) {
+            Blur.logLabel(lblUniversalLogs, "Erro ao email...");
+            e.printStackTrace();
+        }
+    }
+
+    /**Encerrar Sessão e voltar à tela de Login*/
+    public void returnToLogin(ActionEvent event) throws IOException{
+
+        //Borrar fundo
+        Parent parent = mainMenuBar.getParent().getParent();
+
+        Blur.blurParent(parent);
+
+        //Chamar detalhes
+        Stage popUp = new Stage();
+        popUp.initModality(Modality.APPLICATION_MODAL);
+        popUp.initStyle(StageStyle.TRANSPARENT);
+
+        PopUpFecharSessaoController popUpFecharSessaoController = new PopUpFecharSessaoController(mainMenuBar);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/zarsystem/view/popup/PopUpFecharSessao.fxml"));
+        loader.setController(popUpFecharSessaoController);
+
+        Scene scene = new Scene(loader.load());
+        scene.setFill(null);
+        popUp.setScene(scene);
+        popUp.show();
+
+        popUp.setOnHiding(e -> Blur.unblurParent(parent));
     }
 }

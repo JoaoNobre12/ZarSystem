@@ -12,6 +12,7 @@ public class Produto {
     private double valor;
     private double valorRevenda;
     private int quantidade;
+    private int vendas;
 
     public int getCodProduto() {
         return codProduto;
@@ -67,5 +68,13 @@ public class Produto {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public int getVendas() {
+        return vendas;
+    }
+
+    public void setVendas(int vendas) {
+        this.vendas = vendas;
     }
 }

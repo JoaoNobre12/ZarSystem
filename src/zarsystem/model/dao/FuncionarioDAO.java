@@ -1,7 +1,6 @@
 package zarsystem.model.dao;
 
 import zarsystem.controller.MenuController;
-import zarsystem.model.Helpers;
 import zarsystem.model.domain.Funcionario;
 import zarsystem.view.blur.Blur;
 

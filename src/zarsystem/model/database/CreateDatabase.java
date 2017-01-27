@@ -1,9 +1,6 @@
 package zarsystem.model.database;
 
-import zarsystem.view.blur.Blur;
-
 import java.io.*;
-import java.util.Formatter;
 
 /**
  * Classe de criação e seleção de banco de dados

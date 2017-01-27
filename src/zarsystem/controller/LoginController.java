@@ -1,6 +1,7 @@
 package zarsystem.controller;
 
-/**Controlador da tela de Login
+/**
+ * Controlador da tela de Login
  * Created by joao on 04/09/16.
  */
 
@@ -19,9 +20,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import zarsystem.controller.popup.PopUpChangePassController;
 import zarsystem.controller.popup.PopUpRootLoginController;
-import zarsystem.view.blur.Blur;
+import zarsystem.model.dao.Dao;
 import zarsystem.model.domain.Login;
+import zarsystem.view.blur.Blur;
 
 import java.io.IOException;
 
@@ -44,7 +47,7 @@ public class LoginController extends Controller {
     @FXML
     private Button btnDora;
     @FXML
-    private Hyperlink hplEsqueceuSenha;
+    private Hyperlink hplEsqueciSenha;
     @FXML
     private TextField txtLogin;
     @FXML
@@ -83,12 +86,14 @@ public class LoginController extends Controller {
                 }
             }
         });
+
+        connectDatabase();
     }
 
-    public void btnClicked(Button btn) {
+    private void btnClicked(Button btn) {
 
         if (btn.idProperty().getValue().equals(btnZar.idProperty().getValue())
-                && zarBorder == false) {
+                && !zarBorder) {
             System.out.println("zar");
 
             btn.setStyle(btn.getStyle() + "-fx-background-color: transparent;"
@@ -118,7 +123,7 @@ public class LoginController extends Controller {
         user.setTipo("dono");
 
         btnClicked(btnZar);
-        txtLogin.setText("RodrigoZar");
+        txtLogin.setText("Zar");
         txtPass.requestFocus();
     }
 
@@ -126,7 +131,7 @@ public class LoginController extends Controller {
     public void doraClicked() {
         user.setTipo("dono");
         btnClicked(btnDora);
-        txtLogin.setText("KleberDora");
+        txtLogin.setText("Dora");
         txtPass.requestFocus();
     }
 
@@ -158,13 +163,15 @@ public class LoginController extends Controller {
     @FXML
     public void atendClicked(Event event) throws IOException {
         user.setTipo("atendente");
-        callSplash(event);
+
+        txtLogin.setText("atendente");
+        txtPass.requestFocus();
     }
 
     @FXML
     public void verifyLogin(Event event) throws IOException {
 
-        if (login.autenticate(txtLogin.getText(), txtPass.getText())) {
+        if (login.authenticate(txtLogin.getText(), txtPass.getText())) {
             System.out.println("Login feito com sucesso");
             callSplash(event);
         } else{
@@ -175,5 +182,32 @@ public class LoginController extends Controller {
 
     public void updatePass(ActionEvent event) {
         System.out.println("Alterar senha");
+        Parent parent = ((Node) event.getSource()).getParent();
+
+        try {
+            Blur.blurParent(parent);
+
+            PopUpChangePassController popUpChangePassController = new PopUpChangePassController();
+
+            Stage dbStage = new Stage();
+
+            dbStage.initModality(Modality.APPLICATION_MODAL);
+            dbStage.initStyle(StageStyle.TRANSPARENT);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/zarsystem/view/popup/PopUpChangePass.fxml"));
+
+            loader.setController(popUpChangePassController);
+
+            Scene scene = new Scene(loader.load());
+            scene.setFill(null);
+            dbStage.setScene(scene);
+            dbStage.show();
+
+            dbStage.setOnHiding(evt -> Blur.unblurParent(parent));
+        } catch (IOException e) {
+            Blur.logLabel(lblLoginInvalido, "Erro ao carregar popup");
+            Blur.unblurParent(parent);
+            e.printStackTrace();
+        }
     }
 }

@@ -1,7 +1,5 @@
 package zarsystem.controller.popup;
 
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DialogPane;
 import zarsystem.controller.Controller;

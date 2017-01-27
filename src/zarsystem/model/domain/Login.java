@@ -1,31 +1,59 @@
 package zarsystem.model.domain;
 
+import zarsystem.model.dao.LoginDao;
+
+import java.util.List;
+
 public class Login {
-	String[] user = { "admin", "KleberDora", "RodrigoZar" };
 
-	String pass = "admin";
+	String user;
+	String pass;
+    String systemKey;
 
-	public String getUser(int i) {
-		return user[i];
+    public String getUser() {
+        return user;
+    }
 
-	}
+    public void setUser(String user) {
+        this.user = user;
+    }
 
-	public void setUser(String user, int i) {
-		this.user[i] = user;
-	}
+    public String getPass() {
+        return pass;
+    }
 
-	public String getPass() {
-		return pass;
-	}
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
 
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
+    public String getSystemKey() {
+        return systemKey;
+    }
 
-	public boolean autenticate(String user, String pass){
-		if((user.equals(this.user[0]) || user.equals(this.user[1]) || user.equals(this.user[2])) && pass.equals(this.pass))
-			return true; //temporario
-		else
-			return false;
-	}
+    public void setSystemKey(String systemKey) {
+        this.systemKey = systemKey;
+    }
+
+    /**
+     * Faz a autenticação comparando os parâmetros com os do banco de dados
+     * @param user usuário que foi passado pelo usuário
+     * @param pass senha que esse usuário passou
+     * @return true se ocorreu com sucesso, false se não foi feito com sucesso
+     * */
+    public boolean authenticate(String user, String pass){
+        LoginDao loginDao = new LoginDao();
+        List<Login> logins = loginDao.consultDb();
+        boolean success = false;
+
+        for (Login l : logins){
+            if(l.getUser().equalsIgnoreCase(user)) {
+                if (l.getPass().equals(pass)){
+                    success = true;
+                    break;
+                }
+            }
+        }
+
+        return success;
+    }
 }

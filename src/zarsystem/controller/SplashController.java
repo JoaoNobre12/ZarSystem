@@ -12,8 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import zarsystem.model.database.Database;
-import zarsystem.model.Helpers;
-import zarsystem.model.dao.Dao;
 
 public class SplashController extends Controller {
 

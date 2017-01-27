@@ -5,11 +5,11 @@ package zarsystem.model.database;
  * Created by joao on 04/09/16.
  */
 
-import zarsystem.controller.popup.PopUpChangeDbController;
 import zarsystem.model.dao.Dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Database {
       String[] configs = CreateDatabase.readDbConfig();
@@ -22,6 +22,7 @@ public class Database {
         this.configs = configs;
     }
 
+    private Connection cnn;
 
     /**
      * Conecta ao db
@@ -43,8 +44,6 @@ public class Database {
 
         System.out.println(url);
 
-        Connection cnn;
-
             Class.forName("com.mysql.jdbc.Driver");
 
             cnn = DriverManager.getConnection(url, user, pass);
@@ -60,4 +59,8 @@ public class Database {
 
     }
 
+    public void closeConnection() throws SQLException{
+        cnn.close();
+        System.out.println("conexão fechada");
+    }
 }

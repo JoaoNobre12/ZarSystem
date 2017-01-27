@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<DialogPane prefHeight="420.0" prefWidth="505.0" style="-fx-background-color: transparent;" stylesheets="@../css/CadastroAndUpdates.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+    <padding>
+        <Insets left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <content>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="336.0" prefWidth="465.0" styleClass="Frame">
+            <children>
+                <ImageView fitHeight="235.0" fitWidth="190.0" layoutX="261.0" layoutY="139.0" opacity="0.1">
+                    <image>
+                        <Image url="@../img/root.png" />
+                    </image>
+                </ImageView>
+                <Group layoutX="83.0" layoutY="153.0" />
+                <ImageView fitHeight="88.0" fitWidth="249.0" layoutX="100.0" layoutY="24.0">
+                    <image>
+                        <Image url="@../img/sobre1.png" />
+                    </image>
+                </ImageView>
+                <Button id="Fechar" fx:id="btnClose" layoutX="418.0" layoutY="13.0" mnemonicParsing="false" onAction="#closePopUp" prefHeight="24.0" prefWidth="24.0" styleClass="ControlButton">
+                    <font>
+                        <Font name="ADAM.CGPRO" size="8.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="13.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/Fechar.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                  <GridPane layoutX="10.0" layoutY="130.0" prefHeight="156.0" prefWidth="443.0" style="-fx-background-color: rgba(0,0,0,0.15); -fx-background-radius: 20;">
+                      <columnConstraints>
+                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="107.0" />
+                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="305.0" minWidth="10.0" prefWidth="296.0" />
+                      </columnConstraints>
+                      <rowConstraints>
+                  <RowConstraints maxHeight="26.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                          <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                          <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                      <children>
+                          <Label prefHeight="20.0" prefWidth="36.0" text="Key:" textFill="WHITE" GridPane.rowIndex="1">
+                              <font>
+                                  <Font size="14.0" />
+                              </font>
+                          </Label>
+                          <Label prefHeight="20.0" prefWidth="101.0" text="Nova Senha:" textFill="WHITE" GridPane.rowIndex="2">
+                              <font>
+                                  <Font size="14.0" />
+                              </font>
+                          </Label>
+                          <TextField fx:id="txtKey" focusTraversable="false" prefHeight="28.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                          <PasswordField fx:id="passNewPass" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label layoutX="30.0" layoutY="85.0" prefHeight="20.0" prefWidth="104.0" text="Repetir Senha:" textFill="WHITE" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="passRepeatNewPass" disable="true" layoutX="93.0" layoutY="81.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label layoutX="30.0" layoutY="48.0" prefHeight="20.0" prefWidth="60.0" text="Usuário:" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtUser" focusTraversable="false" layoutX="157.0" layoutY="47.0" prefHeight="28.0" prefWidth="200.0" GridPane.columnIndex="1" />
+                      </children>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+                  </GridPane>
+                  <Button layoutX="251.0" layoutY="312.0" mnemonicParsing="false" onAction="#closePopUp" prefHeight="39.0" prefWidth="110.0" text=" Cancelar">
+                      <graphic>
+                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                  <Image url="@../img/Cancel.png" />
+                              </image>
+                          </ImageView>
+                      </graphic>
+                      <cursor>
+                          <Cursor fx:constant="HAND" />
+                      </cursor>
+                  </Button>
+                  <Button fx:id="btnOkay" disable="true" layoutX="131.0" layoutY="312.0" mnemonicParsing="false" onAction="#alterarSenha" prefHeight="36.0" prefWidth="110.0" text=" Okay">
+                      <graphic>
+                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                  <Image url="@../img/Lupa.png" />
+                              </image>
+                          </ImageView>
+                      </graphic>
+                      <cursor>
+                          <Cursor fx:constant="HAND" />
+                      </cursor>
+                  </Button>
+            </children>
+        </AnchorPane>
+    </content>
+</DialogPane>

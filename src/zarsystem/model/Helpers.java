@@ -1,7 +1,6 @@
 package zarsystem.model;
 
 import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,12 +13,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import zarsystem.controller.popup.PopUpChangeDbController;
 import zarsystem.view.blur.Blur;
 
-import java.beans.EventHandler;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.Date;
 import java.text.*;
 
@@ -54,6 +50,7 @@ public class Helpers{
     }
 
     public static String parseStringDate(Date date) throws ParseException{
+
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         String stringDate = dateFormat.format(date);
@@ -67,7 +64,8 @@ public class Helpers{
     public void initializes(Label lblTime, Pane frame, ComboBox<String> cbBoxPlano,
                                 ComboBox<String> cbPlanoAluno, ComboBox<String> cbBoxDia, ObservableList<String> cbList, ObservableList<String> cbListDia){
 
-        frame.setStyle("-fx-padding: 0px 0px 0px 0px;"); //sem border porque inicia maximizado
+        frame.setStyle("-fx-padding: 0px 0px 0px 0px;" +
+                "-fx-background-radius: 0;"); //sem border porque inicia maximizado
         cbBoxPlano.setItems(cbList); //plano
         cbPlanoAluno.setItems(cbList);
         cbBoxDia.setItems(cbListDia);

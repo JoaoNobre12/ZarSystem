@@ -7,13 +7,8 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import zarsystem.controller.Controller;
 import zarsystem.model.Inits;
-import zarsystem.model.database.CreateDatabase;
-import zarsystem.model.database.Database;
-
-import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.net.Socket;
 
 
 public class Main extends Application {
@@ -28,6 +23,8 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.show();
+
+        Controller.HOST_SERVICES = getHostServices();
     }
 
     public static void main(String[] args) {
@@ -35,6 +32,7 @@ public class Main extends Application {
         inits.start();
 
         launch(args);
+
     }
 
 }

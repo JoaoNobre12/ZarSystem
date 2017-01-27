@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `fit` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `fit`;
--- MySQL dump 10.13  Distrib 5.7.16, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: fit
 -- ------------------------------------------------------
--- Server version	5.7.16-0ubuntu0.16.10.1
+-- Server version	5.7.14
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -47,7 +47,7 @@ CREATE TABLE `alunos` (
 
 LOCK TABLES `alunos` WRITE;
 /*!40000 ALTER TABLE `alunos` DISABLE KEYS */;
-INSERT INTO `alunos` VALUES (24056,'Eli Soares','2016-11-16','M','45.234.523-4','345.634.563-45','Musculação + Sertanejo',NULL,NULL,1,NULL),(31799,'Gabriela Rocha','1999-02-23','M','23.454.523-4','234.523.452-34','Musculação + Sertanejo + Muay Thai',5,'2016-11-15',1,0),(37240,'João Vitor','2016-11-09','M','34.563.456-3','475.674.567-45','Muay Thai',5,NULL,0,NULL),(38912,'Carlos Bolsonaro','1989-02-13','M','23.452.345-3','','Musculação + Sertanejo',5,NULL,0,1),(75879,'Thalles Roberto','1977-11-08','M','23.452.345-2','','Musculação + Sertanejo + Muay Thai',10,NULL,0,0),(82077,'João Vitor Clarindo','1999-01-20','M','45.548.448-4','469.341.288-00','Musculação + Sertanejo + Muay Thai',5,NULL,0,1),(90183,'Maria Madalena','1970-06-09','F','42.345.424-3','022.085.434-32','Musculação + Sertanejo + Muay Thai',10,NULL,0,NULL),(91049,'Anderson Freire','1999-02-03','M','23.452.345-5','','Muay Thai',20,NULL,1,1);
+INSERT INTO `alunos` VALUES (24056,'Eli Soares','2016-11-16','M','45.234.523-4','345.634.563-45','Musculação + Sertanejo',25,'2016-11-29',1,NULL),(27148,'Natália Lima Vieira','1989-04-08','F','34.523.454-3','765.456.543-45','Muay Thai',15,'2016-11-26',1,0),(27682,'João Carlos','1934-12-23','M','65.435.654-3','','Musculação + Sertanejo',5,NULL,1,0),(37240,'João Vitor Nobre','2016-11-09','M','34.563.456-3','475.674.567-45','Muay Thai',5,'2016-10-23',0,NULL),(38912,'Carlos Bolsonaro','1989-02-13','M','23.452.345-3','','Musculação + Sertanejo',5,'2016-11-26',1,1),(52328,'Deserve','1998-02-12','M','52.345.245-4','','Musculação + Sertanejo',25,'2016-11-30',1,0),(75879,'Thalles Roberto','1977-11-08','M','23.452.345-2','','Musculação + Sertanejo + Muay Thai',10,'2016-11-23',0,0),(90183,'Maria Madalena','1970-06-09','F','42.345.424-3','022.085.434-32','Musculação + Sertanejo + Muay Thai',10,'2016-11-26',1,NULL),(91049,'Anderson Freire','1999-02-03','M','23.452.345-5','','Muay Thai',15,NULL,0,1);
 /*!40000 ALTER TABLE `alunos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +93,7 @@ CREATE TABLE `av_fisica` (
 
 LOCK TABLES `av_fisica` WRITE;
 /*!40000 ALTER TABLE `av_fisica` DISABLE KEYS */;
-INSERT INTO `av_fisica` VALUES (9,38912,1.65,6,6,100.00,23.00,53.00,4.80,4.84,6.80,6.80,6.00,5.00,5.00,6.00,5.00,5.50,3.60,6.00,5.00,88.88),(10,82077,1.75,1520,565,1.00,8.00,46.00,7.00,4.00,9.00,9.00,6.00,4.00,4.00,6.00,366.00,6.00,5.00,5.00,4.00,50.00),(12,91049,3.00,3,3,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,34.00);
+INSERT INTO `av_fisica` VALUES (9,38912,1.65,6,6,100.00,23.00,53.00,4.80,4.84,6.80,6.80,6.00,5.00,5.00,6.00,5.00,5.50,3.60,6.00,5.00,88.88),(12,91049,3.00,3,3,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,3.00,34.00);
 /*!40000 ALTER TABLE `av_fisica` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,7 +113,10 @@ CREATE TABLE `funcionarios` (
   `objetivo` varchar(50) DEFAULT NULL,
   `formacao` varchar(50) DEFAULT NULL,
   `salario` decimal(10,2) DEFAULT NULL,
-  PRIMARY KEY (`cod_funcionario`)
+  PRIMARY KEY (`cod_funcionario`),
+  UNIQUE KEY `rg` (`rg`),
+  UNIQUE KEY `rg_2` (`rg`),
+  UNIQUE KEY `rg_3` (`rg`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -123,8 +126,90 @@ CREATE TABLE `funcionarios` (
 
 LOCK TABLES `funcionarios` WRITE;
 /*!40000 ALTER TABLE `funcionarios` DISABLE KEYS */;
-INSERT INTO `funcionarios` VALUES (40579,'Remido Santos','M','23.455.434-5','','Aula','Ensino Médio',600.00),(50368,'Thalles de Milletto','M','23.452.345-2','345.345.432-43','Presença','Filosofia',10000000.00),(61053,'Naldo Beni','M','24.532.452-3','234.523.455-42','Querer','Ensino Médio',1000.00),(82627,'Ea Ado RA','F','23.455.432-4','','Marcar História','Vai e Vai',355.00);
+INSERT INTO `funcionarios` VALUES (19088,'Kim Walker Smith','M','23.455.634-5','','Cantar S','Música',1500.00),(40579,'Remido Santos Lopos','M','23.455.434-5','565.845.745-5','Aula','Ensino Médio',600.00),(61053,'Naldo Beni Santos','M','24.532.452-3','234.523.455-42','Dançar','Ensino Médio',1500.00),(89398,'Lauren Diagle','F','45.235.454-5','234.523.455-42','Cantar e Dançar','Música',4000.00);
 /*!40000 ALTER TABLE `funcionarios` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `produtos`
+--
+
+DROP TABLE IF EXISTS `produtos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `produtos` (
+  `cod_produto` int(11) NOT NULL,
+  `nome` varchar(30) NOT NULL,
+  `tipo` varchar(20) NOT NULL,
+  `descricao` varchar(150) DEFAULT NULL,
+  `vendas` int(11) DEFAULT NULL,
+  `valor` decimal(10,2) NOT NULL,
+  `quantidade` int(11) DEFAULT NULL,
+  `valor_revenda` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`cod_produto`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `produtos`
+--
+
+LOCK TABLES `produtos` WRITE;
+/*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
+INSERT INTO `produtos` VALUES (8390,'João','Vestível','joaoaoaoao',2,80.00,10,120.00),(68556,'Calemoro','Vestível','Cakça de nadar',16570,71.00,56,800.00),(91792,'Ademantol','Consumível','caddsfdsfadf',7,45.00,8,67.00);
+/*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_clientes`
+--
+
+DROP TABLE IF EXISTS `site_clientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_clientes` (
+  `cod_cliente_site` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(40) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `plano` varchar(45) NOT NULL,
+  `duvida` text NOT NULL,
+  PRIMARY KEY (`cod_cliente_site`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_clientes`
+--
+
+LOCK TABLES `site_clientes` WRITE;
+/*!40000 ALTER TABLE `site_clientes` DISABLE KEYS */;
+INSERT INTO `site_clientes` VALUES (1,'João Vitor Nobre','joao@joao','Sertanejo','qual a dois de 1?\r\n        ');
+/*!40000 ALTER TABLE `site_clientes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `vendas`
+--
+
+DROP TABLE IF EXISTS `vendas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `vendas` (
+  `cod_produto` int(11) NOT NULL,
+  `nome` varchar(30) DEFAULT NULL,
+  `tipo` varchar(20) DEFAULT NULL,
+  `descricao` varchar(150) DEFAULT NULL,
+  `valor` decimal(10,2) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vendas`
+--
+
+LOCK TABLES `vendas` WRITE;
+/*!40000 ALTER TABLE `vendas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `vendas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -136,4 +221,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-15 23:43:14
+-- Dump completed on 2016-12-05  0:46:50

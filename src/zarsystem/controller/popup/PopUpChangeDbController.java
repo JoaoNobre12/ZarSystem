@@ -7,12 +7,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import zarsystem.controller.Controller;
+import zarsystem.model.dao.Dao;
 import zarsystem.model.database.CreateDatabase;
 import zarsystem.model.database.Database;
-import zarsystem.model.dao.Dao;
 import zarsystem.view.blur.Blur;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * Created by joao on 04/11/2016.
@@ -59,12 +60,14 @@ public class PopUpChangeDbController extends Controller{
             setUser(configs != null ? configs[1] : "user");
             setPass(configs != null ? configs[2] : "pass");
             setPort(configs != null ? configs[3] : "port");
+
         } catch (Exception e) {
             e.printStackTrace();
+            Blur.logLabel(lblErrorConnection, "erro ao preencher dados.");
         }
 
-        txtRootUserName.setText(user);Blur.logLabel(lblErrorConnection, "Erro ao conectar.");
         txtRootHost.setText(host);
+        txtRootUserName.setText(user);
         txtRootPassword.setText(pass);
         txtRootPort.setText(port);
     }
@@ -89,9 +92,9 @@ public class PopUpChangeDbController extends Controller{
             setPort(txtRootPort.getText());
 
             database.setConfigs(CreateDatabase.readDbConfig());
-            Blur.logLabel(lblErrorConnection, "Conexão feita com sucesso!");
             try {
                 Dao.connection = database.createConnection();
+                Blur.logLabel(lblErrorConnection, "Conexão feita com sucesso!");
             } catch (Exception e) {
                 Blur.logLabel(lblErrorConnection, "Erro ao conectar.");
                 e.printStackTrace();

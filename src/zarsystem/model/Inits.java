@@ -32,7 +32,7 @@ public class Inits extends Thread{
     public void run(){
 
         System.out.println("        2015 - 2016           ");
-        System.out.println("CodeKing Softwares & WebSites");
+        System.out.println("Grow Up! Softwares & WebSites");
         System.out.println("         ZarSystem            ");
 
         System.out.println();
