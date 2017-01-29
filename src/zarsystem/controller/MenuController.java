@@ -35,11 +35,7 @@ import zarsystem.model.domain.*;
 import zarsystem.view.blur.Blur;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
@@ -1064,6 +1060,8 @@ public class MenuController extends Controller {
      * Também carrega tabela de histórico e dados
      * */
     public void loadTableCstProdutos(){
+        Finances finances = new Finances(this);
+
         try {
             System.out.print("Carregando tabela de produtos... ");
             tvCstProdutos.setItems(FXCollections.observableArrayList(produtoDao.consultDb()));
@@ -1076,20 +1074,22 @@ public class MenuController extends Controller {
             lblHistoricoVendasEfetuadas.setText(String.valueOf(produtoDao.produtosVendidos()));
             lblHistoricoValorGasto.setText(String.valueOf(produtoDao.valorGasto()));
             lblHistoricoEstoqueRegistrado.setText(String.valueOf(produtoDao.estoqueTotalRegistrado()));
-            lblHistoricoLucroFinal.setText(String.valueOf(produtoDao.lucroTotalPrevisto()));
+            lblHistoricoLucroFinal.setText(String.valueOf(produtoDao.lucroTotalPrevistoProdutos()));
             lblHistoricoValorArrecadado.setText(String.valueOf(produtoDao.valorArrecadado()));
-            lblHistoricoLucroAteAgora.setText(String.valueOf(produtoDao.lucroAteAgora()));
+            lblHistoricoLucroAteAgora.setText(String.valueOf(produtoDao.lucroAteAgoraProduto()));
 
             //carrega dados da aba finanças
             lblFinancasVendasEfetuadas.setText(String.valueOf(produtoDao.produtosVendidos()));
             lblFinancasValorGasto.setText(String.valueOf(produtoDao.valorGasto()));
             lblFinancasEstoqueRegistrado.setText(String.valueOf(produtoDao.estoqueTotalRegistrado()));
-            lblFinancasLucroFinal.setText(String.valueOf(produtoDao.lucroTotalPrevisto()));
+
+            //Lucro final líquido
+            lblFinancasLucroFinal.setText(String.valueOf(finances.lucroLiquido()));
             lblFinancasValorArrecadado.setText(String.valueOf(produtoDao.valorArrecadado()));
-            lblFinancasLucroAteAgora.setText(String.valueOf(produtoDao.lucroAteAgora()));
+            lblFinancasLucroAteAgora.setText(String.valueOf(produtoDao.lucroAteAgoraProduto()));
 
             //Carrega lucro previsto da aba home
-            lblHomeRendaPrevista.setText(String.valueOf(produtoDao.lucroTotalPrevisto()));
+            lblHomeRendaPrevista.setText(String.valueOf(finances.lucroLiquido()));
 
             System.out.println("Ok.");
         } catch (SQLException  e) {

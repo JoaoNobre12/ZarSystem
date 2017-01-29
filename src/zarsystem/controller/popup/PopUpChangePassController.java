@@ -30,7 +30,7 @@ public class PopUpChangePassController extends Controller{
         txtKey.textProperty().addListener((ov, oldValue, newValue) -> {
             txtKey.setText(newValue.toUpperCase());
 
-            if (newValue.equalsIgnoreCase("QWERTY987123BJ")){ //key aqui
+            if (newValue.equalsIgnoreCase("QWERTY987123BJ")){
                 passNewPass.setDisable(false);
                 passRepeatNewPass.setDisable(false);
             }else {

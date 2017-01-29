@@ -144,4 +144,18 @@ public class FuncionarioDAO extends Dao{
         statement.execute();
     }
 
+    /**
+     * soma dos salarios de todos os funcionarios
+     */
+    public double somaSalarios() throws SQLException{
+        String query = "SELECT SUM(salario) FROM funcionarios";
+
+        PreparedStatement statement = connection.prepareStatement(query);
+
+        ResultSet result = statement.executeQuery();
+
+        result.next();
+
+        return result.getInt(1);
+    }
 }

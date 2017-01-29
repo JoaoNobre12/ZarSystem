@@ -39,7 +39,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="Pai" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="1006.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zarsystem.controller.MenuController">
+<StackPane fx:id="Pai" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="1006.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zarsystem.controller.MenuController">
    <children>
       <BorderPane fx:id="mainMenu" prefHeight="615.0" prefWidth="1060.0" styleClass="Frame" stylesheets="@css/Menu.css">
          <bottom>
@@ -60,7 +60,7 @@
                      <StackPane.margin>
                         <Insets right="5.0" />
                      </StackPane.margin></Label>
-                  <Label id="status" prefHeight="18.0" style="-fx-background-color: #943030;" text="Grow Up Software e Web Sites, Academia Health Fitness Zar System 1.1 ">
+                  <Label id="status" prefHeight="18.0" style="-fx-background-color: #943030;" text="Grow Up Software e Web Sites, Academia Health Fitness Zar System 2.0 ">
                      <StackPane.margin>
                         <Insets bottom="3.0" />
                      </StackPane.margin>
@@ -102,7 +102,7 @@
                                     <Label id="status" text="Alunos Cadastrados:" />
                                     <Label id="status" layoutY="19.0" text="Funcionários Cadastrados:" />
                                     <Label id="status" layoutY="39.0" text="Produtos Cadastrados:" />
-                                    <Label id="status" layoutY="58.0" prefHeight="20.0" prefWidth="124.0" text="Renda Prevista: R$" />
+                                    <Label id="status" layoutY="58.0" prefHeight="20.0" prefWidth="124.0" text="Lucro Previsto: R$" />
                                     <Label id="status" fx:id="lblClientesCadastrados" layoutX="141.0" layoutY="1.0" text="555" />
                                     <Label id="status" fx:id="lblFuncionariosCadastrados" layoutX="169.0" layoutY="20.0" text="666" />
                                     <Label id="status" fx:id="lblProdutosCadastrados" layoutX="148.0" layoutY="40.0" text="666" />

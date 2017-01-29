@@ -419,4 +419,30 @@ public class AlunoDAO extends Dao{
         return listPendentes;
     }
 
+
+    /**
+     * soma as mensalidades de cada cliente com base no seu plano
+     */
+    public double somaMensalidades() throws SQLException{
+        String query = "SELECT plano  FROM alunos";
+        double resultSum = 0;
+        PreparedStatement statement = connection.prepareStatement(query);
+
+        ResultSet result = statement.executeQuery();
+
+        while (result.next()){
+            switch (result.getString("plano"))   {
+                case "Musculação + Aeróbico": resultSum += 50.00; break;
+                case "Sertanejo": resultSum += 30.00; break;
+                case "Muay Thai": resultSum += 30.00; break;
+                case "Musculação + Sertanejo": resultSum += 65.00; break;
+                case "Musculação + Sertanejo + Muay Thai": resultSum += 75.00; break;
+                case "Musculação + Muay Thai": resultSum += 65.00; break;
+                default: resultSum += 0.0;
+            }
+        }
+
+        return resultSum;
+    }
+
 }

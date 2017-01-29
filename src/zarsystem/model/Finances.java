@@ -4,6 +4,8 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import zarsystem.controller.MenuController;
 
+import java.sql.SQLException;
+
 /**
  * Classe base do controle do grafico de Finanças
  * Created by joaov on 09/12/2016.
@@ -61,5 +63,18 @@ public class Finances {
         series4Lucro.setName("lucro obtido até o momento");
         series4Lucro.getData().add(new XYChart.Data<>("Lucro até agora", Double.parseDouble(menuController.lblFinancasLucroAteAgora.getText())));
         chartLucro.getData().add(series4Lucro);
+    }
+
+    /**
+     * Lucro final com base nas mensalidades dos alunos e nos salários dos funcionários
+     * @return a previsao de lucro liquido, sem despesas
+     * */
+    public double lucroLiquido(){
+        try {
+            return menuController.produtoDao.lucroTotalPrevistoProdutos() + menuController.alunoDAO.somaMensalidades() - menuController.funcionarioDAO.somaSalarios();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0.0;
+        }
     }
 }

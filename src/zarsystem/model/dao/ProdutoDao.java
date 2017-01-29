@@ -240,7 +240,7 @@ public class ProdutoDao extends Dao{
     /**Lucro previsto com base no estoque
      * @return a soma das diferenças entre os valores de revenda dos produtos em estoque e o valor de compra deles.
      */
-    public double lucroTotalPrevisto() throws SQLException{
+    public double lucroTotalPrevistoProdutos() throws SQLException{
         String query = "SELECT SUM((valor_revenda * quantidade)  - (valor * quantidade))  FROM produtos";
 
         PreparedStatement statement = connection.prepareStatement(query);
@@ -255,7 +255,7 @@ public class ProdutoDao extends Dao{
     /** Lucro até o momento baseado nos produtos já vendidos
      *  @return a diferença entre o valor de revenda e o valor de compra multiplicado pelas vendas.
      */
-    public double lucroAteAgora() throws SQLException{
+    public double lucroAteAgoraProduto() throws SQLException{
         String query = "SELECT SUM((valor_revenda - valor) * vendas)  FROM produtos";
 
         PreparedStatement statement = connection.prepareStatement(query);

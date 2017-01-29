@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="loginFrame" fx:id="loginFrame" maxHeight="566.0" maxWidth="940.0" minHeight="517.0" minWidth="728.0" prefHeight="566.0" prefWidth="940.0" style="-fx-background-color: transparent;" styleClass="AnchorPane" stylesheets="@css/Login.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zarsystem.controller.LoginController">
+<AnchorPane id="loginFrame" fx:id="loginFrame" maxHeight="566.0" maxWidth="940.0" minHeight="517.0" minWidth="728.0" prefHeight="566.0" prefWidth="940.0" style="-fx-background-color: transparent;" styleClass="AnchorPane" stylesheets="@css/Login.css" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zarsystem.controller.LoginController">
 
 	<children>
 		<ImageView fitHeight="534.0" fitWidth="900.0" layoutX="20.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" styleClass="Root">
@@ -141,7 +141,7 @@
 						</ImageView>
 					</graphic>
 				</Button>
-		<Label id="lblVercao" fx:id="lblVercao" alignment="CENTER_RIGHT" layoutX="209.0" layoutY="515.0" prefHeight="29.0" prefWidth="496.0" stylesheets="@css/Login.css" text="Grow Up Software e WebSites, Academia Health Fitness, Zar System 1.1  " textAlignment="CENTER" textFill="WHITE">
+		<Label id="lblVercao" fx:id="lblVercao" alignment="CENTER_RIGHT" layoutX="209.0" layoutY="515.0" prefHeight="29.0" prefWidth="496.0" stylesheets="@css/Login.css" text="Grow Up Software e WebSites, Academia Health Fitness, Zar System 2.0  " textAlignment="CENTER" textFill="WHITE">
 		<font>
 			<Font size="15.0" />
 		</font>
