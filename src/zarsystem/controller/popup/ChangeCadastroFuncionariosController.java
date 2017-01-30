@@ -114,8 +114,6 @@ public class ChangeCadastroFuncionariosController extends Controller {
         funcionario.setSalario(Double.parseDouble(txtSalarioFunc.getText().replace(',','.')));
         funcionario.setSexo((radioSexMasculino.isSelected()) ? "M" : "F");
 
-        System.out.println(funcionario.getSexo());
-
         return funcionario;
     }
 }

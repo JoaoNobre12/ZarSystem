@@ -33,7 +33,11 @@ import zarsystem.model.dao.FuncionarioDAO;
 import zarsystem.model.dao.ProdutoDao;
 import zarsystem.model.domain.*;
 import zarsystem.view.blur.Blur;
-
+import static zarsystem.view.fieldmasks.Masks.*;
+import static java.lang.String.*;
+import static zarsystem.model.Helpers.*;
+import static java.lang.Double.*;
+import static java.lang.Integer.*;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -289,7 +293,7 @@ public class MenuController extends Controller {
         //Mudar valor do plano
         cbBoxPlanoCliente.getSelectionModel().selectedItemProperty().addListener(evt -> {
 
-            txtValorMensalidade.setText(String.valueOf(super.valorPlano(cbBoxPlanoCliente.getSelectionModel().getSelectedIndex())).replace('.',','));
+            txtValorMensalidade.setText(String.valueOf(maskToReal(super.valorPlano(cbBoxPlanoCliente.getSelectionModel().getSelectedIndex()))));
 
             cbBoxDiaDePagamento.getSelectionModel().select(0);
         });
@@ -355,7 +359,7 @@ public class MenuController extends Controller {
 
                 txtPagNumMatricula.setText(String.valueOf(a.getCodMatricula()));
                 txtPagNomeAluno.setText(a.getNome());
-                txtPagValorPlano.setText(String.valueOf(super.valorPlano(a.getPlano())));
+                txtPagValorPlano.setText(maskToReal(super.valorPlano(a.getPlano())));
                 txtPagPlano.setText(a.getPlano());
 
                 //Abrir detalhes do aluno
@@ -979,45 +983,38 @@ public class MenuController extends Controller {
         });
 
         //Calcular lucro previsto
-        EventHandler<KeyEvent> eventHandlerLucro = new EventHandler<KeyEvent>() {
-
-            @Override
-            public void handle(KeyEvent event) {
-                String txtValor = txtCadValorProdutos.getText();
-                String txtValorRevenda = txtCadValorRevendaProdutos.getText();
-                String txtQtdProdutos = txtCadQtdProdutos.getText();
-
-                //Colocar ultima letra digitada antes de fazer as contas
-                TextField textField = (TextField) event.getSource();
-
-
-                    if (textField.getId().equals("txtCadValorProdutos")){
-                        txtValor += event.getCharacter();
-                        System.out.println("txtvalor: " + txtValor);
-                    }
-                    else if (textField.getId().equals("txtCadValorRevendaProdutos")){
-                        txtValorRevenda += event.getCharacter();
-                        System.out.println("txtvalorrevenda: " + txtValorRevenda);
-                    }
-                    else {
-                        txtQtdProdutos += event.getCharacter();
-                        System.out.println("txtqtd: " + txtQtdProdutos);
-                    }
-
-                try {
-                    txtCadLucroProdutos.setText(String.valueOf(Helpers.lucroEstimado(
-                            Double.parseDouble(txtValor),
-                            Double.parseDouble(txtValorRevenda),
-                            Integer.parseInt(txtQtdProdutos)
-                    )));
-                } catch (NumberFormatException e) {
-                    System.out.println(e.getMessage());
-                }
+        txtCadValorProdutos.textProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                txtCadLucroProdutos.setText(maskToReal(lucroEstimado(
+                        parseDouble(newValue.replace(',','.')),
+                        parseDouble(txtCadValorRevendaProdutos.getText().replace(',','.')),
+                        parseInt(txtCadQtdProdutos.getText().replace(',','.')))));
+            } catch (NumberFormatException e) {
+                System.out.println("Erro ao calcular lucro estimado: " + e.getMessage());
             }
-        };
-        txtCadValorProdutos.addEventHandler(KeyEvent.KEY_TYPED, eventHandlerLucro);
-        txtCadValorRevendaProdutos.addEventHandler(KeyEvent.KEY_TYPED, eventHandlerLucro);
-        txtCadQtdProdutos.addEventHandler(KeyEvent.KEY_TYPED, eventHandlerLucro);
+        });
+        txtCadValorRevendaProdutos.textProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                txtCadLucroProdutos.setText(maskToReal(lucroEstimado(
+                        parseDouble(txtCadValorProdutos.getText().replace(',','.')),
+                        parseDouble(newValue.replace(',','.')),
+                        parseInt(txtCadQtdProdutos.getText().replace(',','.')))));
+            } catch (NumberFormatException e) {
+                System.out.println("Erro ao calcular lucro estimado: " + e.getMessage());
+            }
+        });
+        txtCadQtdProdutos.textProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                txtCadLucroProdutos.setText(maskToReal(lucroEstimado(
+                        parseDouble(txtCadValorProdutos.getText().replace(',','.')),
+                        parseDouble(txtCadValorRevendaProdutos.getText().replace(',','.')),
+                        parseInt(newValue))));
+            } catch (NumberFormatException e) {
+                System.out.println("Erro ao calcular lucro estimado: " + e.getMessage());
+            }
+        });
+
+
 
         //pegar clicks nas linhas da tabela de produtos
         tvCstProdutos.setRowFactory(tv -> {
@@ -1048,7 +1045,7 @@ public class MenuController extends Controller {
                 txtCarrinhoCodProduto.setText(String.valueOf(p.getCodProduto()));
                 txtCarrinhoDescricao.setText(p.getDescricao());
                 txtCarrinhoTipoProduto.setText(p.getTipo());
-                txtCarrinhoValorProduto.setText(String.valueOf(p.getValorRevenda()));
+                txtCarrinhoValorProduto.setText(maskToReal(p.getValorRevenda()));
             });
             return row;
         }); //Mudar Itens do field consulta
@@ -1085,11 +1082,12 @@ public class MenuController extends Controller {
 
             //Lucro final líquido
             lblFinancasLucroFinal.setText(String.valueOf(finances.lucroLiquido()));
+
             lblFinancasValorArrecadado.setText(String.valueOf(produtoDao.valorArrecadado()));
             lblFinancasLucroAteAgora.setText(String.valueOf(produtoDao.lucroAteAgoraProduto()));
 
             //Carrega lucro previsto da aba home
-            lblHomeRendaPrevista.setText(String.valueOf(finances.lucroLiquido()));
+            lblHomeRendaPrevista.setText(maskToReal(finances.lucroLiquido()));
 
             System.out.println("Ok.");
         } catch (SQLException  e) {
@@ -1106,7 +1104,7 @@ public class MenuController extends Controller {
      * */
     public void loadTableCarrinho(){
         //setar txt valor total
-        txtCarrinhoValorTotal.setText(String.valueOf(valorTotal));
+        txtCarrinhoValorTotal.setText(maskToReal(valorTotal));
         System.out.print("Mudando carrinho... ");
         tvProdutosCarrinho.setItems(FXCollections.observableArrayList(listCarrinho));
         System.out.println("Ok.");
@@ -1122,7 +1120,7 @@ public class MenuController extends Controller {
             produto.setNome(txtCadNomeProdutos.getText());
             produto.setDescricao(txtCadDescriçãoProdutos.getText());
             produto.setTipo(cbCadTipoProduto.getValue());
-            produto.setValor(Double.parseDouble(txtCadValorProdutos.getText()));
+            produto.setValor(Double.parseDouble(txtCadValorProdutos.getText().replace(',','.')));
             produto.setQuantidade(Integer.parseInt(txtCadQtdProdutos.getText()));
             produto.setValorRevenda(Double.parseDouble(txtCadValorRevendaProdutos.getText()));
 

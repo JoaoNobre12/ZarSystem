@@ -1208,14 +1208,14 @@
                                                             <Insets left="115.0" right="120.0" />
                                                          </GridPane.margin>
                                                       </TextField>
-                                                      <Label prefHeight="19.0" prefWidth="173.0" text="Lucro previsto:" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                      <Label prefHeight="19.0" prefWidth="173.0" text="Lucro previsto: R$" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                          <GridPane.margin>
                                                             <Insets left="5.0" />
                                                          </GridPane.margin>
                                                       </Label>
                                                       <TextField fx:id="txtCadLucroProdutos" disable="true" prefHeight="25.0" prefWidth="134.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                          <GridPane.margin>
-                                                            <Insets left="100.0" />
+                                                            <Insets left="122.0" />
                                                          </GridPane.margin>
                                                       </TextField>
                                                       <ComboBox fx:id="cbCadTipoProduto" prefHeight="25.0" prefWidth="273.0" promptText="Selecione...">
@@ -1233,7 +1233,7 @@
                                                       </Label>
                                                       <TextField fx:id="txtCadNomeProdutos" prefHeight="25.0" prefWidth="342.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                          <GridPane.margin>
-                                                            <Insets left="80.0" />
+                                                            <Insets left="60.0" />
                                                          </GridPane.margin>
                                                       </TextField>
                                                    </children>
