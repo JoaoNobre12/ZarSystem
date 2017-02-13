@@ -39,7 +39,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="Pai" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="1006.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.91" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zarsystem.controller.MenuController">
+<StackPane fx:id="Pai" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="1006.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zarsystem.controller.MenuController">
    <children>
       <BorderPane fx:id="mainMenu" prefHeight="615.0" prefWidth="1060.0" styleClass="Frame" stylesheets="@css/Menu.css">
          <bottom>
@@ -640,7 +640,7 @@
                                                 </GridPane>
                                                 <TableView fx:id="tablePagamentoAlunos" minWidth="-Infinity" prefHeight="342.0" prefWidth="667.0" tableMenuButtonVisible="true">
                                                    <placeholder>
-                                                      <Label text="Nenhum pagamento pendente." />
+                                                      <Label prefHeight="20.0" prefWidth="181.0" text="Nenhum aluno encontrado." />
                                                    </placeholder>
                                                    <columns>
                                                       <TableColumn minWidth="0.0" text="Nº Matrícula">
@@ -854,12 +854,12 @@
                                                                <PropertyValueFactory property="descricao" />
                                                            </cellValueFactory>
                                                        </TableColumn>
-                                                      <TableColumn maxWidth="1000.0" minWidth="100.0" prefWidth="224.0" text="Valor">
+                                                      <TableColumn maxWidth="1000.0" minWidth="100.0" prefWidth="138.0" text="Valor R$">
                                                           <cellValueFactory>
                                                               <PropertyValueFactory property="valor" />
                                                           </cellValueFactory>
                                                       </TableColumn>
-                                                      <TableColumn maxWidth="1000.0" minWidth="70.0" prefWidth="122.0" text="Valor Revenda">
+                                                      <TableColumn maxWidth="1000.0" minWidth="70.0" prefWidth="152.0" text="Valor Revenda R$">
                                                           <cellValueFactory>
                                                               <PropertyValueFactory property="valorRevenda" />
                                                           </cellValueFactory>
@@ -1079,7 +1079,7 @@
                                                             <PropertyValueFactory property="descricao" />
                                                          </cellValueFactory>
                                                       </TableColumn>
-                                                      <TableColumn maxWidth="1000.0" minWidth="70.0" prefWidth="122.0" text="Valor Revenda">
+                                                      <TableColumn maxWidth="1000.0" minWidth="70.0" prefWidth="122.0" text="Valor Revenda R$">
                                                          <cellValueFactory>
                                                             <PropertyValueFactory property="preco" />
                                                          </cellValueFactory>
@@ -1487,7 +1487,7 @@
                                                               <PropertyValueFactory property="cpf" />
                                                           </cellValueFactory>
                                                       </TableColumn>
-                                                      <TableColumn maxWidth="1000.0" minWidth="90.0" prefWidth="224.0" text="Salário">
+                                                      <TableColumn maxWidth="1000.0" minWidth="90.0" prefWidth="224.0" text="Salário R$">
                                                           <cellValueFactory>
                                                               <PropertyValueFactory property="salario" />
                                                           </cellValueFactory>

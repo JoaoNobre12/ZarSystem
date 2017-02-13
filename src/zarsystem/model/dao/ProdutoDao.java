@@ -6,7 +6,7 @@ import zarsystem.controller.MenuController;
 import zarsystem.model.Helpers;
 import zarsystem.model.domain.Produto;
 import zarsystem.model.domain.Venda;
-
+import static zarsystem.view.fieldmasks.Masks.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

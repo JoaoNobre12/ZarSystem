@@ -1,7 +1,11 @@
 .gitignore
+
 mysql-connector-java-5.1.38-bin.jar
+
 ZarSystem.iml
-.idea/
-out/
-src/
-META-INF/
+.idea
+/
+out/*
+/
+src/META-INF/
+*

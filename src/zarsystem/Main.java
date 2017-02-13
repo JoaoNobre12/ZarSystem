@@ -14,7 +14,7 @@ import zarsystem.model.Inits;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Pane root = FXMLLoader.load(getClass().getResource("/zarsystem/view/Menu.fxml"));
+        Pane root = FXMLLoader.load(getClass().getResource("/zarsystem/view/Login.fxml"));
 
         Scene scene = new Scene(root);
         scene.setFill(null);

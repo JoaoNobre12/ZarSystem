@@ -7,16 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ZarSystem/zarsystem/controller/MenuController$3.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ZarSystem/zarsystem/controller/MenuController$1.class" afterPath="$PROJECT_DIR$/out/production/ZarSystem/zarsystem/controller/MenuController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ZarSystem/zarsystem/controller/MenuController$2.class" afterPath="$PROJECT_DIR$/out/production/ZarSystem/zarsystem/controller/MenuController$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ZarSystem/zarsystem/controller/MenuController.class" afterPath="$PROJECT_DIR$/out/production/ZarSystem/zarsystem/controller/MenuController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ZarSystem/zarsystem/controller/popup/ChangeCadastroFuncionariosController.class" afterPath="$PROJECT_DIR$/out/production/ZarSystem/zarsystem/controller/popup/ChangeCadastroFuncionariosController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ZarSystem/zarsystem/view/Menu.fxml" afterPath="$PROJECT_DIR$/out/production/ZarSystem/zarsystem/view/Menu.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/zarsystem/Main.java" afterPath="$PROJECT_DIR$/src/zarsystem/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/zarsystem/controller/MenuController.java" afterPath="$PROJECT_DIR$/src/zarsystem/controller/MenuController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/zarsystem/controller/popup/ChangeCadastroFuncionariosController.java" afterPath="$PROJECT_DIR$/src/zarsystem/controller/popup/ChangeCadastroFuncionariosController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/zarsystem/controller/popup/PopUpRootLoginController.java" afterPath="$PROJECT_DIR$/src/zarsystem/controller/popup/PopUpRootLoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/zarsystem/model/Finances.java" afterPath="$PROJECT_DIR$/src/zarsystem/model/Finances.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/zarsystem/model/dao/ProdutoDao.java" afterPath="$PROJECT_DIR$/src/zarsystem/model/dao/ProdutoDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/zarsystem/view/Menu.fxml" afterPath="$PROJECT_DIR$/src/zarsystem/view/Menu.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -109,34 +104,10 @@
       <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/zarsystem/controller/MenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="992" column="58" selection-start-line="992" selection-start-column="58" selection-end-line="992" selection-end-column="58" />
+            <state relative-caret-position="329">
+              <caret line="760" column="0" selection-start-line="760" selection-start-column="0" selection-end-line="760" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="10" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/zarsystem/controller/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3213">
-              <caret line="222" column="18" selection-start-line="222" selection-start-column="18" selection-end-line="222" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#4306#4307#0" expanded="false" />
-                <element signature="e#4350#4351#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -145,11 +116,9 @@
       <file leaf-file-name="Finances.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/zarsystem/model/Finances.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="27" column="26" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state relative-caret-position="647">
+              <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -157,12 +126,9 @@
       <file leaf-file-name="AlunoDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/zarsystem/model/dao/AlunoDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5406">
+            <state relative-caret-position="291">
               <caret line="334" column="26" selection-start-line="334" selection-start-column="8" selection-end-line="334" selection-end-column="26" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#676#677#0" expanded="false" />
-                <element signature="e#728#729#0" expanded="false" />
                 <marker date="1485664499232" expanded="true" signature="900:1046" ph="SELECT FLOOR... alunos" />
                 <marker date="1485664499232" expanded="true" signature="1005:1037" ph="SELECT cod_m... alunos" />
                 <marker date="1485664499232" expanded="true" signature="1790:1962" ph="INSERT INTO alunos... " />
@@ -190,59 +156,71 @@
       </file>
       <file leaf-file-name="Menu.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/zarsystem/view/Menu.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="17">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
               <caret line="534" column="55" selection-start-line="534" selection-start-column="55" selection-end-line="534" selection-end-column="55" />
               <folding />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+          <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/zarsystem/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PopUpRootLoginController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/zarsystem/controller/popup/PopUpRootLoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="ProdutoDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/zarsystem/model/dao/ProdutoDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2635">
-              <caret line="169" column="26" selection-start-line="169" selection-start-column="8" selection-end-line="169" selection-end-column="26" />
+            <state relative-caret-position="300">
+              <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#665#666#0" expanded="false" />
-                <element signature="e#717#718#0" expanded="false" />
-                <marker date="1485656241184" expanded="true" signature="786:934" ph="SELECT FLOOR... produtos" />
-                <marker date="1485656241184" expanded="true" signature="893:925" ph="SELECT cod_p... produtos" />
-                <marker date="1485656241184" expanded="true" signature="1687:1840" ph="INSERT INTO produtos... " />
-                <marker date="1485656241184" expanded="true" signature="2457:2479" ph="SELECT * FRO... produtos" />
-                <marker date="1485656241184" expanded="true" signature="3457:3498" ph="DELETE FROM " />
-                <marker date="1485656241184" expanded="true" signature="3760:3894" ph="INSERT INTO vendas... " />
-                <marker date="1485656241184" expanded="true" signature="4409:4429" ph="SELECT * FRO... vendas" />
-                <marker date="1485656241184" expanded="true" signature="5392:5483" ph="UPDATE produ... " />
-                <marker date="1485656241184" expanded="true" signature="5511:5610" ph="UPDATE produ... " />
-                <marker date="1485656241184" expanded="true" signature="6061:6091" ph="UPDATE produ... " />
-                <marker date="1485656241184" expanded="true" signature="6445:6477" ph="SELECT SUM(v... produtos" />
-                <marker date="1485656241184" expanded="true" signature="6876:6920" ph="SELECT SUM(v... produtos" />
-                <marker date="1485656241184" expanded="true" signature="7265:7301" ph="SELECT SUM(q... produtos" />
-                <marker date="1485656241184" expanded="true" signature="7756:7835" ph="SELECT SUM((... produtos" />
-                <marker date="1485656241184" expanded="true" signature="8287:8346" ph="SELECT SUM((... produtos" />
-                <marker date="1485656241184" expanded="true" signature="8744:8795" ph="SELECT SUM((... produtos" />
+                <element signature="imports" expanded="true" />
+                <marker date="1485747876270" expanded="true" signature="834:982" ph="SELECT FLOOR... produtos" />
+                <marker date="1485747876270" expanded="true" signature="941:973" ph="SELECT cod_p... produtos" />
+                <marker date="1485747876270" expanded="true" signature="1735:1888" ph="INSERT INTO produtos... " />
+                <marker date="1485747876270" expanded="true" signature="2505:2527" ph="SELECT * FRO... produtos" />
+                <marker date="1485747876270" expanded="true" signature="3505:3546" ph="DELETE FROM " />
+                <marker date="1485747876270" expanded="true" signature="3808:3942" ph="INSERT INTO vendas... " />
+                <marker date="1485747876270" expanded="true" signature="4457:4477" ph="SELECT * FRO... vendas" />
+                <marker date="1485747876270" expanded="true" signature="5440:5531" ph="UPDATE produ... " />
+                <marker date="1485747876270" expanded="true" signature="5559:5658" ph="UPDATE produ... " />
+                <marker date="1485747876270" expanded="true" signature="6109:6139" ph="UPDATE produ... " />
+                <marker date="1485747876270" expanded="true" signature="6493:6525" ph="SELECT SUM(v... produtos" />
+                <marker date="1485747876270" expanded="true" signature="6924:6968" ph="SELECT SUM(v... produtos" />
+                <marker date="1485747876270" expanded="true" signature="7313:7349" ph="SELECT SUM(q... produtos" />
+                <marker date="1485747876270" expanded="true" signature="7804:7883" ph="SELECT SUM((... produtos" />
+                <marker date="1485747876270" expanded="true" signature="8335:8394" ph="SELECT SUM((... produtos" />
+                <marker date="1485747876270" expanded="true" signature="8792:8843" ph="SELECT SUM((... produtos" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Database.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/zarsystem/model/database/Database.java">
+      <file leaf-file-name="Produto.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/zarsystem/model/domain/Produto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#343#344#0" expanded="false" />
-                <element signature="e#373#374#0" expanded="false" />
-                <element signature="e#422#423#0" expanded="false" />
-                <element signature="e#460#461#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="221">
+              <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -250,9 +228,11 @@
       <file leaf-file-name="Masks.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/zarsystem/view/fieldmasks/Masks.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
-              <folding />
+            <state relative-caret-position="238">
+              <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -312,7 +292,6 @@
         <option value="$PROJECT_DIR$/src/zarsystem/view/popup/PopUpConfirmDeleteProduto.fxml" />
         <option value="$PROJECT_DIR$/src/zarsystem/controller/popup/ConfirmDeleteProdutoController.java" />
         <option value="$PROJECT_DIR$/src/zarsystem/view/popup/PopUpConfirmarVenda.fxml" />
-        <option value="$PROJECT_DIR$/src/zarsystem/model/domain/Produto.java" />
         <option value="$PROJECT_DIR$/src/zarsystem/controller/popup/ConfirmarVendaController.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/417b98de-f51c-4f4b-9f31-1a75c095265f/console.sql" />
         <option value="$PROJECT_DIR$/lib/mysql-connector-java-5.1.38-bin.jar!/com/mysql/jdbc/PreparedStatement.class" />
@@ -333,7 +312,6 @@
         <option value="$PROJECT_DIR$/src/zarsystem/view/popup/PopUpChangePass.fxml" />
         <option value="$PROJECT_DIR$/src/zarsystem/model/dao/LoginDao.java" />
         <option value="$PROJECT_DIR$/src/zarsystem/model/domain/Login.java" />
-        <option value="$PROJECT_DIR$/src/zarsystem/controller/popup/PopUpRootLoginController.java" />
         <option value="$PROJECT_DIR$/src/zarsystem/view/css/PopUp.css" />
         <option value="$PROJECT_DIR$/database.zar" />
         <option value="$PROJECT_DIR$/src/zarsystem/controller/popup/PopUpChangeDbController.java" />
@@ -342,17 +320,19 @@
         <option value="$PROJECT_DIR$/src/zarsystem/controller/popup/PopUpChangePassController.java" />
         <option value="$PROJECT_DIR$/src/zarsystem/view/Login.fxml" />
         <option value="$PROJECT_DIR$/src/zarsystem/view/Splash.fxml" />
-        <option value="$PROJECT_DIR$/src/zarsystem/Main.java" />
-        <option value="$PROJECT_DIR$/src/zarsystem/model/dao/ProdutoDao.java" />
         <option value="$PROJECT_DIR$/src/zarsystem/model/dao/AlunoDAO.java" />
         <option value="$PROJECT_DIR$/src/zarsystem/model/dao/FuncionarioDAO.java" />
-        <option value="$PROJECT_DIR$/src/zarsystem/model/Finances.java" />
         <option value="$PROJECT_DIR$/src/zarsystem/model/Helpers.java" />
         <option value="$PROJECT_DIR$/src/zarsystem/view/fieldmasks/Masks.java" />
         <option value="$PROJECT_DIR$/src/zarsystem/controller/popup/ChangeCadastroFuncionariosController.java" />
-        <option value="$PROJECT_DIR$/src/zarsystem/view/Menu.fxml" />
-        <option value="$PROJECT_DIR$/src/zarsystem/controller/MenuController.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/zarsystem/view/Menu.fxml" />
+        <option value="$PROJECT_DIR$/src/zarsystem/model/dao/ProdutoDao.java" />
+        <option value="$PROJECT_DIR$/src/zarsystem/model/domain/Produto.java" />
+        <option value="$PROJECT_DIR$/src/zarsystem/model/Finances.java" />
+        <option value="$PROJECT_DIR$/src/zarsystem/controller/MenuController.java" />
+        <option value="$PROJECT_DIR$/src/zarsystem/Main.java" />
+        <option value="$PROJECT_DIR$/src/zarsystem/controller/popup/PopUpRootLoginController.java" />
       </list>
     </option>
   </component>
@@ -588,6 +568,64 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZarSystem2.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZarSystem2.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zarsystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="popup" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZarSystem2.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZarSystem2.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="production" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZarSystem2.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZarSystem2.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1301,7 +1339,7 @@
       <workItem from="1485642724728" duration="1333000" />
       <workItem from="1485656071060" duration="8538000" />
       <workItem from="1485707864669" duration="4377000" />
-      <workItem from="1485744046566" duration="2915000" />
+      <workItem from="1485744046566" duration="7001000" />
     </task>
     <task id="LOCAL-00001" summary="primeiro commit">
       <created>1473389864629</created>
@@ -1342,11 +1380,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="600309000" />
+    <option name="totallyTimeSpent" value="604395000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1360,7 +1398,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16666667" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16666667" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32855362" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1450,13 +1488,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/zarsystem/controller/MenuController.java</url>
-          <line>448</line>
+          <line>456</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/zarsystem/controller/MenuController.java</url>
-          <line>449</line>
+          <line>457</line>
           <properties class="zarsystem.controller.MenuController" />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
@@ -1474,13 +1512,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91021">
           <caret line="3669" column="0" selection-start-line="3669" selection-start-column="0" selection-end-line="3669" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/zarsystem/model/domain/Produto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="78" column="5" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1650,13 +1681,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/zarsystem/controller/PopUpSairController.java" />
-    <entry file="file://$PROJECT_DIR$/src/zarsystem/controller/popup/PopUpRootLoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/zarsystem/view/css/PopUp.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -1722,16 +1746,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/zarsystem/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="16" column="80" selection-start-line="16" selection-start-column="80" selection-end-line="16" selection-end-column="80" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/zarsystem/controller/popup/PopUpChangePassController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -1761,76 +1775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/zarsystem/model/dao/AlunoDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5406">
-          <caret line="334" column="26" selection-start-line="334" selection-start-column="8" selection-end-line="334" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#676#677#0" expanded="false" />
-            <element signature="e#728#729#0" expanded="false" />
-            <marker date="1485664499232" expanded="true" signature="900:1046" ph="SELECT FLOOR... alunos" />
-            <marker date="1485664499232" expanded="true" signature="1005:1037" ph="SELECT cod_m... alunos" />
-            <marker date="1485664499232" expanded="true" signature="1790:1962" ph="INSERT INTO alunos... " />
-            <marker date="1485664499232" expanded="true" signature="2972:2992" ph="SELECT * FRO... alunos" />
-            <marker date="1485664499232" expanded="true" signature="4225:4269" ph="DELETE FROM " />
-            <marker date="1485664499232" expanded="true" signature="4312:4353" ph="DELETE FROM " />
-            <marker date="1485664499232" expanded="true" signature="4988:5030" ph="SELECT COUNT... alunos" />
-            <marker date="1485664499232" expanded="true" signature="5623:5750" ph="SELECT EXTRA... alunos" />
-            <marker date="1485664499232" expanded="true" signature="6713:6792" ph="UPDATE aluno... " />
-            <marker date="1485664499232" expanded="true" signature="7329:7409" ph="SELECT av_fi... alunos" />
-            <marker date="1485664499232" expanded="true" signature="8104:8155" ph="SELECT * FRO... alunos" />
-            <marker date="1485664499232" expanded="true" signature="8228:8310" ph="SELECT * FRO... alunos" />
-            <marker date="1485664499232" expanded="true" signature="9815:9976" ph="UPDATE aluno... " />
-            <marker date="1485664499232" expanded="true" signature="10724:10841" ph="UPDATE aluno... " />
-            <marker date="1485664499232" expanded="true" signature="11207:11281" ph="UPDATE aluno... " />
-            <marker date="1485664499232" expanded="true" signature="11309:11403" ph="UPDATE aluno... " />
-            <marker date="1485664499232" expanded="true" signature="11917:11959" ph="SELECT * FRO... alunos" />
-            <marker date="1485664499232" expanded="true" signature="13353:13472" ph="SELECT * FRO... alunos" />
-            <marker date="1485664499232" expanded="true" signature="13543:13671" ph="SELECT * FRO... alunos" />
-            <marker date="1485664499232" expanded="true" signature="15203:15228" ph="SELECT plano... alunos" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/zarsystem/model/dao/ProdutoDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2635">
-          <caret line="169" column="26" selection-start-line="169" selection-start-column="8" selection-end-line="169" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#665#666#0" expanded="false" />
-            <element signature="e#717#718#0" expanded="false" />
-            <marker date="1485656241184" expanded="true" signature="786:934" ph="SELECT FLOOR... produtos" />
-            <marker date="1485656241184" expanded="true" signature="893:925" ph="SELECT cod_p... produtos" />
-            <marker date="1485656241184" expanded="true" signature="1687:1840" ph="INSERT INTO produtos... " />
-            <marker date="1485656241184" expanded="true" signature="2457:2479" ph="SELECT * FRO... produtos" />
-            <marker date="1485656241184" expanded="true" signature="3457:3498" ph="DELETE FROM " />
-            <marker date="1485656241184" expanded="true" signature="3760:3894" ph="INSERT INTO vendas... " />
-            <marker date="1485656241184" expanded="true" signature="4409:4429" ph="SELECT * FRO... vendas" />
-            <marker date="1485656241184" expanded="true" signature="5392:5483" ph="UPDATE produ... " />
-            <marker date="1485656241184" expanded="true" signature="5511:5610" ph="UPDATE produ... " />
-            <marker date="1485656241184" expanded="true" signature="6061:6091" ph="UPDATE produ... " />
-            <marker date="1485656241184" expanded="true" signature="6445:6477" ph="SELECT SUM(v... produtos" />
-            <marker date="1485656241184" expanded="true" signature="6876:6920" ph="SELECT SUM(v... produtos" />
-            <marker date="1485656241184" expanded="true" signature="7265:7301" ph="SELECT SUM(q... produtos" />
-            <marker date="1485656241184" expanded="true" signature="7756:7835" ph="SELECT SUM((... produtos" />
-            <marker date="1485656241184" expanded="true" signature="8287:8346" ph="SELECT SUM((... produtos" />
-            <marker date="1485656241184" expanded="true" signature="8744:8795" ph="SELECT SUM((... produtos" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/zarsystem/model/Finances.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" column="26" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/zarsystem/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3213">
@@ -1840,14 +1784,6 @@
             <element signature="e#4306#4307#0" expanded="false" />
             <element signature="e#4350#4351#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/zarsystem/view/fieldmasks/Masks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1875,17 +1811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/zarsystem/view/Menu.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="534" column="55" selection-start-line="534" selection-start-column="55" selection-end-line="534" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/zarsystem/model/Helpers.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -1894,20 +1819,128 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/zarsystem/controller/MenuController.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="992" column="58" selection-start-line="992" selection-start-column="58" selection-end-line="992" selection-end-column="58" />
+        <state relative-caret-position="0">
+          <caret line="0" column="10" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/zarsystem/model/dao/AlunoDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="334" column="26" selection-start-line="334" selection-start-column="8" selection-end-line="334" selection-end-column="26" />
+          <folding>
+            <marker date="1485664499232" expanded="true" signature="900:1046" ph="SELECT FLOOR... alunos" />
+            <marker date="1485664499232" expanded="true" signature="1005:1037" ph="SELECT cod_m... alunos" />
+            <marker date="1485664499232" expanded="true" signature="1790:1962" ph="INSERT INTO alunos... " />
+            <marker date="1485664499232" expanded="true" signature="2972:2992" ph="SELECT * FRO... alunos" />
+            <marker date="1485664499232" expanded="true" signature="4225:4269" ph="DELETE FROM " />
+            <marker date="1485664499232" expanded="true" signature="4312:4353" ph="DELETE FROM " />
+            <marker date="1485664499232" expanded="true" signature="4988:5030" ph="SELECT COUNT... alunos" />
+            <marker date="1485664499232" expanded="true" signature="5623:5750" ph="SELECT EXTRA... alunos" />
+            <marker date="1485664499232" expanded="true" signature="6713:6792" ph="UPDATE aluno... " />
+            <marker date="1485664499232" expanded="true" signature="7329:7409" ph="SELECT av_fi... alunos" />
+            <marker date="1485664499232" expanded="true" signature="8104:8155" ph="SELECT * FRO... alunos" />
+            <marker date="1485664499232" expanded="true" signature="8228:8310" ph="SELECT * FRO... alunos" />
+            <marker date="1485664499232" expanded="true" signature="9815:9976" ph="UPDATE aluno... " />
+            <marker date="1485664499232" expanded="true" signature="10724:10841" ph="UPDATE aluno... " />
+            <marker date="1485664499232" expanded="true" signature="11207:11281" ph="UPDATE aluno... " />
+            <marker date="1485664499232" expanded="true" signature="11309:11403" ph="UPDATE aluno... " />
+            <marker date="1485664499232" expanded="true" signature="11917:11959" ph="SELECT * FRO... alunos" />
+            <marker date="1485664499232" expanded="true" signature="13353:13472" ph="SELECT * FRO... alunos" />
+            <marker date="1485664499232" expanded="true" signature="13543:13671" ph="SELECT * FRO... alunos" />
+            <marker date="1485664499232" expanded="true" signature="15203:15228" ph="SELECT plano... alunos" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/zarsystem/model/dao/ProdutoDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1485747876270" expanded="true" signature="834:982" ph="SELECT FLOOR... produtos" />
+            <marker date="1485747876270" expanded="true" signature="941:973" ph="SELECT cod_p... produtos" />
+            <marker date="1485747876270" expanded="true" signature="1735:1888" ph="INSERT INTO produtos... " />
+            <marker date="1485747876270" expanded="true" signature="2505:2527" ph="SELECT * FRO... produtos" />
+            <marker date="1485747876270" expanded="true" signature="3505:3546" ph="DELETE FROM " />
+            <marker date="1485747876270" expanded="true" signature="3808:3942" ph="INSERT INTO vendas... " />
+            <marker date="1485747876270" expanded="true" signature="4457:4477" ph="SELECT * FRO... vendas" />
+            <marker date="1485747876270" expanded="true" signature="5440:5531" ph="UPDATE produ... " />
+            <marker date="1485747876270" expanded="true" signature="5559:5658" ph="UPDATE produ... " />
+            <marker date="1485747876270" expanded="true" signature="6109:6139" ph="UPDATE produ... " />
+            <marker date="1485747876270" expanded="true" signature="6493:6525" ph="SELECT SUM(v... produtos" />
+            <marker date="1485747876270" expanded="true" signature="6924:6968" ph="SELECT SUM(v... produtos" />
+            <marker date="1485747876270" expanded="true" signature="7313:7349" ph="SELECT SUM(q... produtos" />
+            <marker date="1485747876270" expanded="true" signature="7804:7883" ph="SELECT SUM((... produtos" />
+            <marker date="1485747876270" expanded="true" signature="8335:8394" ph="SELECT SUM((... produtos" />
+            <marker date="1485747876270" expanded="true" signature="8792:8843" ph="SELECT SUM((... produtos" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/zarsystem/model/domain/Produto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/zarsystem/view/fieldmasks/Masks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/zarsystem/model/Finances.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="10" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
+        <state relative-caret-position="647">
+          <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/zarsystem/controller/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="760" column="0" selection-start-line="760" selection-start-column="0" selection-end-line="760" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/zarsystem/view/Menu.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="534" column="55" selection-start-line="534" selection-start-column="55" selection-end-line="534" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/zarsystem/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/zarsystem/controller/popup/PopUpRootLoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
           <folding />
         </state>
       </provider>

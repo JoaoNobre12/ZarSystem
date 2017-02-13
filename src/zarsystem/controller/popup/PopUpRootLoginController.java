@@ -25,7 +25,7 @@ public class PopUpRootLoginController extends Controller{
     @FXML
     private PasswordField passRootPassword;
 
-    private String pass = "root";
+    private String pass = "76072324joao";
 
     @FXML
     public void initialize(){

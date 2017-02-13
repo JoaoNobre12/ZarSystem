@@ -125,6 +125,14 @@ public class MenuController extends Controller {
             finances.loadChart();
         });
 
+        //Carregar Gráfico
+        tabFuncionarios.setOnSelectionChanged(event -> {
+            Finances finances = new Finances(this);
+
+            //Lucro final líquido
+            lblFinancasLucroFinal.setText(String.valueOf(finances.lucroLiquido()));
+        });
+
         //Aba Emails
         initsEmails();
 

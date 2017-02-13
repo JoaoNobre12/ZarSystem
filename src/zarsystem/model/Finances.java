@@ -55,7 +55,7 @@ public class Finances {
         chartLucro.getData().add(series2Lucro);
 
         XYChart.Series<String, Double> series3Lucro = new XYChart.Series<>();
-        series3Lucro.setName("Lucro previsto com base no estoque");
+        series3Lucro.setName("Lucro líquido previsto");
         series3Lucro.getData().add(new XYChart.Data<>("Previsão de lucro", Double.parseDouble(menuController.lblFinancasLucroFinal.getText())));
         chartLucro.getData().add(series3Lucro);
 
